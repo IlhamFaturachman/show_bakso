@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/Map2.dart';
+import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/widget/itemmenu.dart';
-import 'package:show_bakso/widget/menu.dart';
 
 class MenuBakso extends StatefulWidget {
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:show_bakso/Map.dart';
-import 'package:show_bakso/Map2.dart';
+import 'package:show_bakso/screens/Map.dart';
+import 'package:show_bakso/screens/Map2.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 
 class Home extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
-import 'package:show_bakso/home.dart';
+import 'package:show_bakso/screens/home.dart';
 
 void main() {
   SdkContext.init(IsolateOrigin.main);
