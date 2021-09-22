@@ -15,10 +15,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.fromLTRB(
-              size.width * 0.001, size.height * 0.1, size.width * 0.01, 0),
+              size.width * 0.001, size.height * 0.05, size.width * 0.01, 0),
           child: Column(
             children: [
               Container(
@@ -27,10 +28,10 @@ class _HomeState extends State<Home> {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(right: 10),
+                      padding: EdgeInsets.only(right: size.width * 0.03),
                       child: Container(
-                        width: 68.22,
-                        height: 68.22,
+                        width: size.width * 0.18,
+                        height: size.height * 0.1,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("assets/images/bakso.jpg"),
@@ -39,7 +40,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 5),
+                      padding: EdgeInsets.only(top: size.height * 0.01),
                       child: Container(
                         child: RichText(
                           text: TextSpan(
@@ -47,21 +48,21 @@ class _HomeState extends State<Home> {
                               TextSpan(
                                 text: "SH",
                                 style: GoogleFonts.roboto(
-                                    fontSize: 26,
+                                    fontSize: size.width * 0.07,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
                               ),
                               TextSpan(
                                 text: "O",
                                 style: TextStyle(
-                                    fontSize: 26,
+                                    fontSize: size.width * 0.07,
                                     color: const Color(0xffEA8F06),
                                     fontWeight: FontWeight.w600),
                               ),
                               TextSpan(
                                 text: "W BAKSO!",
                                 style: TextStyle(
-                                    fontSize: 26,
+                                    fontSize: size.width * 0.07,
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600),
                               )
@@ -73,8 +74,8 @@ class _HomeState extends State<Home> {
                     Padding(
                       padding: EdgeInsets.only(left: size.width * 0.08),
                       child: Container(
-                        width: 40.72,
-                        height: 33.32,
+                        width: size.width * 0.1,
+                        height: size.height * 0.1,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("assets/images/scan.png"),
@@ -95,14 +96,14 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.fromLTRB(0, size.height * 0.035, 0, 0),
                 child: Container(
                   width: size.width * 0.9,
-                  height: size.height * 0.1,
+                  height: size.height * 0.09,
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.only(bottom: size.height * 0.04),
                         child: Container(
-                          width: 63.33,
-                          height: 63.33,
+                          width: size.width * 0.18,
+                          height: size.height * 0.18,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage(
@@ -120,14 +121,14 @@ class _HomeState extends State<Home> {
                                     TextSpan(
                                       text: "Selamat Siang ",
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: size.width * 0.065,
                                         color: Colors.black,
                                       ),
                                     ),
                                     TextSpan(
                                       text: "Ade!",
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: size.width * 0.065,
                                         color: const Color(0xffEA8F06),
                                       ),
                                     ),
@@ -138,7 +139,7 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 "Penjualan mu sedikit lagi memenuhi target, semangat!",
-                                style: TextStyle(fontSize: 10),
+                                style: TextStyle(fontSize: size.width * 0.025),
                               ),
                             ),
                           ],
@@ -150,7 +151,7 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 width: size.width * 0.9,
-                height: size.height * 0.1,
+                height: 67.37,
                 child: Row(
                   children: [
                     Container(
@@ -160,8 +161,8 @@ class _HomeState extends State<Home> {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 15,
-                            blurRadius: 7,
+                            spreadRadius: size.width * 0.03,
+                            blurRadius: size.width * 0.02,
                             offset: Offset(0, 3),
                           )
                         ],
@@ -170,35 +171,35 @@ class _HomeState extends State<Home> {
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 5),
+                            padding: EdgeInsets.only(left: size.width * 0.02),
                             child: Container(
-                              width: 48.96,
+                              width: size.width * 0.15,
                               height: 48.96,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image:
                                           AssetImage("assets/images/Icon1.jpg"),
-                                      fit: BoxFit.cover)),
+                                      fit: BoxFit.contain)),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10, left: 5),
+                            padding: EdgeInsets.only(top: size.height * 0.015, left: size.width * 0.018),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   child: Text(
                                     "total transaksi",
-                                    style: TextStyle(fontSize: 12),
+                                    style: TextStyle(fontSize: size.width * 0.035),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5),
+                                  padding: EdgeInsets.only(top: size.height * 0.01),
                                   child: Container(
                                     child: Text(
                                       "Rp 200.000",
                                       style: TextStyle(
-                                          fontSize: 18, color: Colors.grey),
+                                          fontSize: size.width * 0.048, color: Colors.grey),
                                     ),
                                   ),
                                 ),
@@ -209,7 +210,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 30),
+                      padding: EdgeInsets.only(left: size.width * 0.09),
                       child: Container(
                         width: size.width * 0.36,
                         decoration: BoxDecoration(
@@ -217,8 +218,8 @@ class _HomeState extends State<Home> {
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 15,
-                              blurRadius: 7,
+                              spreadRadius: size.width * 0.03,
+                              blurRadius: size.width * 0.02,
                               offset: Offset(0, 3),
                             )
                           ],
@@ -231,12 +232,12 @@ class _HomeState extends State<Home> {
                               child: Row(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 5, right: 10),
+                                    padding: EdgeInsets.only(
+                                        left: size.width * 0.02, right: size.width * 0.02),
                                     child: Container(
                                       child: Text(
                                         "mangkuk \nterjual",
-                                        style: TextStyle(fontSize: 13.47),
+                                        style: TextStyle(fontSize: size.width * 0.04),
                                       ),
                                     ),
                                   ),
@@ -244,12 +245,12 @@ class _HomeState extends State<Home> {
                                     child: Stack(
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 17,
+                                          padding: EdgeInsets.only(
+                                            top: size.height * 0.025,
                                           ),
                                           child: Container(
-                                            width: 49.72,
-                                            height: 26.61,
+                                            width: size.width * 0.13,
+                                            height: 26.41,
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
                                                   image: AssetImage(
@@ -260,20 +261,16 @@ class _HomeState extends State<Home> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 5),
+                                             EdgeInsets.only(left: size.width * 0.012),
                                           child: Container(
                                             child: Text(
                                               "18",
-                                              style: TextStyle(fontSize: 32.34),
+                                              style: TextStyle(fontSize: size.width * 0.095),
                                             ),
                                           ),
                                         )
                                       ],
                                     ),
-                                    // child: Text(
-                                    //   "18",
-                                    //   style: TextStyle(fontSize: 32.34),
-                                    // ),
                                   ),
                                 ],
                               ),
@@ -286,100 +283,100 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: EdgeInsets.only(top: 0),
                 child: Container(
                   width: size.width * 0.9,
-                  height: size.height * 0.37,
+                  height: size.height * 0.34,
                   child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Peta(),
-                      ),
-                    );
-                  },
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 381,
-                        height: 231,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/images/Map.jpg")),
-                          borderRadius: BorderRadius.circular(5),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Peta(),
                         ),
-                      ),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 100),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(7)),
-                            width: size.width * 0.6,
-                            height: size.height * 0.04,
-                            child: Center(
-                                child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 15, right: 10),
-                                  child: Container(
-                                    width: 17,
-                                    height: 17,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/telegram.jpg"),
-                                          fit: BoxFit.contain),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: "lihat rekomendasi ",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        TextSpan(
-                                          text: "rute",
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: const Color(0xffEA8F06),
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )),
+                      );
+                    },
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: size.width * 0.9,
+                          height: size.height * 0.4,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/Map.jpg")),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                      ),
-                    ],
+                        Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: size.height * 0.18),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(7)),
+                              width: size.width * 0.6,
+                              height: size.height * 0.04,
+                              child: Center(
+                                  child: Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: size.width * 0.04, right: size.width * 0.026),
+                                    child: Container(
+                                      width: size.width * 0.06,
+                                      height: size.height * 0.03,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/images/telegram.jpg"),
+                                            fit: BoxFit.contain),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: "lihat rekomendasi ",
+                                            style: TextStyle(
+                                                fontSize: size.width * 0.045,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          TextSpan(
+                                            text: "rute",
+                                            style: TextStyle(
+                                                fontSize: size.width * 0.045,
+                                                color: const Color(0xffEA8F06),
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              ),
               Container(
                 width: size.width * 0.9,
-                height: size.height * 0.12,
+                height: size.height * 0.1,
                 child: ConfirmationSlider(
-                  height: size.height * 0.12,
+                  height: size.height * 0.1,
                   foregroundColor: Color(0xffEA8F06),
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Color(0xFFfef6ea),
                   backgroundShape: BorderRadius.circular(50),
-                  text: "               Geser untuk Berjualan",
+                  text: "             Geser untuk Berjualan",
                   textStyle:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: size.width * 0.055, fontWeight: FontWeight.bold),
                   onConfirmation: () {
                     Navigator.push(
                       context,
@@ -392,7 +389,7 @@ class _HomeState extends State<Home> {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(
-                    size.width * 0.05, size.height * 0.05, 0, 0),
+                    size.width * 0.05, size.height * 0.03, 0, 0),
                 child: Container(
                   width: size.width * 1,
                   height: size.height * 0.3,
@@ -414,7 +411,7 @@ class _HomeState extends State<Home> {
                                   EdgeInsets.only(right: size.height * 0.025),
                               child: Container(
                                 width: size.width * 0.27,
-                                height: size.height * 0.13,
+                                height: 85.03,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   boxShadow: [
@@ -431,10 +428,10 @@ class _HomeState extends State<Home> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 13),
+                                        padding: EdgeInsets.only(top: size.height * 0.01),
                                         child: Container(
-                                          width: 31,
-                                          height: 31,
+                                          width: size.width * 0.08,
+                                          height: size.height * 0.05,
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -444,7 +441,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 10),
+                                        padding: EdgeInsets.only(top: size.height * 0.005),
                                         child: Container(
                                           child: Text(
                                             "call center",
@@ -463,7 +460,7 @@ class _HomeState extends State<Home> {
                                   EdgeInsets.only(right: size.height * 0.025),
                               child: Container(
                                 width: size.width * 0.27,
-                                height: size.height * 0.13,
+                                height: 85.03,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   boxShadow: [
@@ -480,10 +477,10 @@ class _HomeState extends State<Home> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 13),
+                                        padding: EdgeInsets.only(top: size.height * 0.01),
                                         child: Container(
-                                          width: 31,
-                                          height: 31,
+                                          width: size.width * 0.09,
+                                          height: size.height * 0.05,
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 image: AssetImage(
@@ -493,7 +490,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 10),
+                                        padding: EdgeInsets.only(top: size.height * 0.005),
                                         child: Container(
                                           child: Text(
                                             "chat robot",
@@ -509,7 +506,7 @@ class _HomeState extends State<Home> {
                             ),
                             Container(
                               width: size.width * 0.27,
-                              height: size.height * 0.13,
+                              height: 85.03,
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 boxShadow: [
@@ -526,10 +523,10 @@ class _HomeState extends State<Home> {
                                 child: Column(
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 13),
+                                      padding: EdgeInsets.only(top: size.height * 0.01),
                                       child: Container(
-                                        width: 31,
-                                        height: 31,
+                                        width: size.width * 0.09,
+                                        height: size.height * 0.05,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: AssetImage(
@@ -539,7 +536,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 10),
+                                      padding: EdgeInsets.only(top: size.height * 0.005),
                                       child: Container(
                                         child: Text(
                                           "pengumuman",

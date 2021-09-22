@@ -7,6 +7,7 @@ class Sosmed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +21,7 @@ class Sosmed extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10),
+            margin: EdgeInsets.only(left: size.width * 0.03),
             child: CircleAvatar(
               backgroundImage: new AssetImage(
                 'assets/images/icons_google.png',

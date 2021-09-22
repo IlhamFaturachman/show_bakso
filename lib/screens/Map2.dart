@@ -43,16 +43,16 @@ class _Peta2State extends State<Peta2> {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: size.width * 0.03),
                       child: Stack(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 17,
+                            padding: EdgeInsets.only(
+                              top: 20,
                             ),
                             child: Container(
-                              width: 49.72,
-                              height: 26.61,
+                              width: size.width * 0.14,
+                              height: 25.87,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image:
@@ -62,11 +62,11 @@ class _Peta2State extends State<Peta2> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 5),
+                            padding: EdgeInsets.only(left: size.width * 0.021),
                             child: Container(
                               child: Text(
                                 "18",
-                                style: TextStyle(fontSize: 32.34),
+                                style: TextStyle(fontSize: size.width * 0.09),
                               ),
                             ),
                           )
@@ -74,7 +74,7 @@ class _Peta2State extends State<Peta2> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 15, left: 10),
+                      padding: EdgeInsets.only(top: 13, left: size.width * 0.025),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,7 +82,7 @@ class _Peta2State extends State<Peta2> {
                             child: Text(
                               "total transaksi",
                               style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
+                                  fontSize: size.width * 0.04, fontWeight: FontWeight.w600),
                             ),
                           ),
                           Padding(
@@ -91,7 +91,7 @@ class _Peta2State extends State<Peta2> {
                               child: Text(
                                 "Rp 200.000",
                                 style:
-                                    TextStyle(fontSize: 18, color: Colors.grey),
+                                    TextStyle(fontSize: size.width * 0.05, color: Colors.grey),
                               ),
                             ),
                           ),
@@ -108,10 +108,10 @@ class _Peta2State extends State<Peta2> {
                     );
                       },
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 15),
+                        padding: EdgeInsets.only(left: size.width * 0.07),
                         child: Container(
-                          width: 42,
-                          height: 42,
+                          width: 42.68,
+                          height: 42.68,
                           decoration: BoxDecoration(
                               border: Border.all(
                                 width: 3,
@@ -136,7 +136,7 @@ class _Peta2State extends State<Peta2> {
               padding: EdgeInsets.only(
                   left: size.width * 0.05, top: size.height * 0.7),
               child: Container(
-                width: 160,
+                width: size.width * 0.45,
                 height: 48,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -153,19 +153,19 @@ class _Peta2State extends State<Peta2> {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: size.width * 0.02),
                       child: Icon(
                         Icons.arrow_drop_up_rounded,
-                        size: 55,
+                        size: size.width * 0.13,
                         color: const Color(0xffEA8F06),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 0),
+                      padding: EdgeInsets.only(left: size.width * 0.03),
                       child: Text(
                         "bantuan",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: size.width * 0.058, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -176,8 +176,8 @@ class _Peta2State extends State<Peta2> {
               padding: EdgeInsets.only(
                   left: size.width * 0.8, top: size.height * 0.7),
               child: Container(
-                width: 48,
-                height: 48,
+                width: size.width * 0.13,
+                height: 55,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(50),
@@ -193,7 +193,7 @@ class _Peta2State extends State<Peta2> {
                 child: Center(
                   child: Icon(
                     CupertinoIcons.location,
-                    size: 35,
+                    size: size.width * 0.1,
                     color: const Color(0xffEA8F06),
                   ),
                 ),
@@ -211,9 +211,9 @@ class _Peta2State extends State<Peta2> {
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Colors.white,
                   backgroundShape: BorderRadius.circular(50),
-                  text: "            Geser untuk Stop Berjualan",
+                  text: "                Geser untuk Stop Berjualan",
                   textStyle:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: size.width * 0.050, fontWeight: FontWeight.bold),
                   onConfirmation: () {
                     Navigator.push(
                       context,

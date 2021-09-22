@@ -18,75 +18,81 @@ class RegisterPage extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 30),
-                    child: Image.asset(
-                      "assets/images/Vector2.png",
-                    )),
+                  width: size.width * 1,
+                  margin: EdgeInsets.only(top: size.height * 0.045),
+                  child: Image.asset(
+                    "assets/images/Vector2.png",fit: BoxFit.cover,
+                  ),
+                ),
                 Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 100),
-                  child: Positioned(
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Buat Akun,',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins', fontSize: 25),
-                            ),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.05,
+                      right: size.width * 0.05,
+                      top: size.height * 0.17),
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Buat Akun,',
+                            style:
+                                TextStyle(fontFamily: 'Poppins', fontSize: 25),
                           ),
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Silahkan register untuk daftar',
-                              style: TextStyle(fontSize: 20),
-                            ),
+                        ),
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Silahkan register untuk daftar',
+                            style: TextStyle(fontSize: 20),
                           ),
-                          SizedBox(
-                            height: 60,
-                          ),
-                          Container(
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.1),
+                          child: Container(
                             child: FormLog(
                               formKey: _formKey,
                             ),
                           ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          ButtonRegister(
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.05),
+                          child: ButtonRegister(
                             formKey: _formKey,
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.04),
+                          child: Container(
                             child: Text(
                               'Atau',
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.03),
+                          child: Container(
+                            child: Sosmed(),
                           ),
-                          Container(child: Sosmed()),
-                          SizedBox(
-                            height: size.height * 0.1,
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  child: Text(
-                                    'Anda sudah punya akun?',
-                                    style: TextStyle(fontFamily: 'Poppins'),
-                                  ),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.1,
+                        ),
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                child: Text(
+                                  'Anda sudah punya akun?',
+                                  style: TextStyle(fontFamily: 'Poppins'),
                                 ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Container(
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: size.width * 0.01),
+                                child: Container(
                                   child: GestureDetector(
                                     child: Text(
                                       'Login',
@@ -106,11 +112,11 @@ class RegisterPage extends StatelessWidget {
                                     },
                                   ),
                                 ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),

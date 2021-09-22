@@ -63,7 +63,7 @@ class _PetaState extends State<Peta> {
               padding: EdgeInsets.only(
                   left: size.width * 0.05, top: size.height * 0.7),
               child: Container(
-                width: 160,
+                width: size.width * 0.45,
                 height: 48,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -80,7 +80,7 @@ class _PetaState extends State<Peta> {
                 child: Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: EdgeInsets.only(left: size.width * 0.02),
                       child: Icon(
                         Icons.arrow_drop_up_rounded,
                         size: 55,
@@ -88,11 +88,12 @@ class _PetaState extends State<Peta> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 0),
+                      padding: EdgeInsets.only(left: size.width * 0.03),
                       child: Text(
                         "bantuan",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: size.width * 0.058,
+                            fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -103,8 +104,8 @@ class _PetaState extends State<Peta> {
               padding: EdgeInsets.only(
                   left: size.width * 0.8, top: size.height * 0.7),
               child: Container(
-                width: 48,
-                height: 48,
+                width: size.width * 0.13,
+                height: 55,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(50),
@@ -120,7 +121,7 @@ class _PetaState extends State<Peta> {
                 child: Center(
                   child: Icon(
                     CupertinoIcons.location,
-                    size: 35,
+                    size: size.width * 0.1,
                     color: const Color(0xffEA8F06),
                   ),
                 ),
@@ -231,7 +232,7 @@ class _PetaState extends State<Peta> {
   MapPolygon _lastMapCircle() {
     double radiusInMeters = 500;
     GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9986169,112.6362238), radiusInMeters);
+        GeoCircle(GeoCoordinates(-7.9986169, 112.6362238), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
     Color fillColor = const Color(0xB3FC2E20);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
-import 'package:show_bakso/screens/home.dart';
+import 'package:show_bakso/screens/login.dart';
 
 void main() {
   SdkContext.init(IsolateOrigin.main);
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SHOW BAKSO!',
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: LoginPage(),
     );
   }
 }

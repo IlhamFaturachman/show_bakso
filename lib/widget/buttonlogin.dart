@@ -10,8 +10,9 @@ class ButtonLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
-      height: 55.0,
+      height: size.height * 0.08,
       child: Material(
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xFFEA8F06),
