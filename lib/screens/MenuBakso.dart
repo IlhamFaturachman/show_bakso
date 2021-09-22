@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/widget/itemmenu.dart';
+
+import 'Map2.dart';
 
 class MenuBakso extends StatefulWidget {
   @override
@@ -13,6 +14,7 @@ class _MenuBaksoState extends State<MenuBakso> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: size.width * 0.05),
@@ -27,7 +29,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 25),
+                          padding: EdgeInsets.only(bottom: size.height * 0.06),
                           child: Container(
                             width: 63.33,
                             height: 63.33,
@@ -77,7 +79,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                   ),
                 ),
                 Container(
-                  width: size.width * 0.9,
+                  width: size.width * 0.95,
                   height: size.height * 0.1,
                   child: Row(
                     children: [
@@ -91,7 +93,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                           );
                         },
                         child: Container(
-                          width: size.width * 0.36,
+                          width: size.width * 0.4,
+                          height: 65.78,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -106,10 +109,10 @@ class _MenuBaksoState extends State<MenuBakso> {
                           ),
                           child: Row(
                             children: [
-                              Container(),
                               Container(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
+                                  padding:
+                                      EdgeInsets.only(left: size.width * 0.05),
                                   child: Icon(
                                     CupertinoIcons.arrow_left,
                                     color: const Color(0xffEA8F06),
@@ -118,7 +121,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 7),
+                                padding:
+                                    EdgeInsets.only(left: size.width * 0.05),
                                 child: Container(
                                   child: Text(
                                     "Batal",
@@ -136,6 +140,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                         padding: EdgeInsets.only(left: size.width * 0.05),
                         child: Container(
                           width: size.width * 0.45,
+                          height: 65.78,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -153,8 +158,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                               Stack(
                                 children: [
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 17, left: 8),
+                                    padding: EdgeInsets.only(
+                                        top: 17, left: size.width * 0.02),
                                     child: Container(
                                       width: 49.72,
                                       height: 26.61,
@@ -167,7 +172,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 13),
+                                    padding: EdgeInsets.only(
+                                        left: size.width * 0.035),
                                     child: Container(
                                       child: Text(
                                         "18",
@@ -179,7 +185,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 10, left: 5),
+                                     EdgeInsets.only(top: 10, left: size.width * 0.035),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -197,7 +203,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                         child: Text(
                                           "Rp 200.000",
                                           style: TextStyle(
-                                              fontSize: 18, color: Colors.grey),
+                                              fontSize: size.width * 0.045,
+                                              color: Colors.grey),
                                         ),
                                       ),
                                     ),
@@ -232,10 +239,11 @@ class _MenuBaksoState extends State<MenuBakso> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: size.height * 0.05),
+                  padding: EdgeInsets.only(
+                      bottom: size.height * 0.05, right: size.width * 0.05),
                   child: Container(
-                    width: size.width * 0.9,
-                    height: size.height * 0.1,
+                    width: size.width * 0.92,
+                    height: 68.41,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color(0xffEA8F06),
@@ -243,29 +251,34 @@ class _MenuBaksoState extends State<MenuBakso> {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 5),
+                          padding:
+                              EdgeInsets.only(left: size.width * 0.05, top: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 "5 menu",
-                                style: TextStyle(color: Colors.white, fontSize: 30),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: size.width * 0.07),
                               ),
-                               Text(
-                                  "klik untuk melanjutkan",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
+                              Text(
+                                "klik untuk melanjutkan",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: size.width * 0.035,
                                 ),
-                            
+                              ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: size.width * 0.13),
+                          padding: EdgeInsets.only(left: size.width * 0.15),
                           child: Container(
-                            child: Text("Rp 135.000", style: TextStyle(color: Colors.white, fontSize: 24),),
+                            child: Text(
+                              "Rp 135.000",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: size.width * 0.06),
+                            ),
                           ),
                         )
                       ],

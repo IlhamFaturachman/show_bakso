@@ -183,23 +183,28 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: size.height * 0.015, left: size.width * 0.018),
+                            padding: EdgeInsets.only(
+                                top: size.height * 0.015,
+                                left: size.width * 0.018),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   child: Text(
                                     "total transaksi",
-                                    style: TextStyle(fontSize: size.width * 0.035),
+                                    style:
+                                        TextStyle(fontSize: size.width * 0.035),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: size.height * 0.01),
+                                  padding:
+                                      EdgeInsets.only(top: size.height * 0.01),
                                   child: Container(
                                     child: Text(
                                       "Rp 200.000",
                                       style: TextStyle(
-                                          fontSize: size.width * 0.048, color: Colors.grey),
+                                          fontSize: size.width * 0.048,
+                                          color: Colors.grey),
                                     ),
                                   ),
                                 ),
@@ -233,11 +238,13 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: size.width * 0.02, right: size.width * 0.02),
+                                        left: size.width * 0.02,
+                                        right: size.width * 0.02),
                                     child: Container(
                                       child: Text(
                                         "mangkuk \nterjual",
-                                        style: TextStyle(fontSize: size.width * 0.04),
+                                        style: TextStyle(
+                                            fontSize: size.width * 0.04),
                                       ),
                                     ),
                                   ),
@@ -260,12 +267,13 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                             EdgeInsets.only(left: size.width * 0.012),
+                                          padding: EdgeInsets.only(
+                                              left: size.width * 0.012),
                                           child: Container(
                                             child: Text(
                                               "18",
-                                              style: TextStyle(fontSize: size.width * 0.095),
+                                              style: TextStyle(
+                                                  fontSize: size.width * 0.095),
                                             ),
                                           ),
                                         )
@@ -321,7 +329,8 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        left: size.width * 0.04, right: size.width * 0.026),
+                                        left: size.width * 0.04,
+                                        right: size.width * 0.026),
                                     child: Container(
                                       width: size.width * 0.06,
                                       height: size.height * 0.03,
@@ -375,8 +384,9 @@ class _HomeState extends State<Home> {
                   backgroundColor: Color(0xFFfef6ea),
                   backgroundShape: BorderRadius.circular(50),
                   text: "             Geser untuk Berjualan",
-                  textStyle:
-                      TextStyle(fontSize: size.width * 0.055, fontWeight: FontWeight.bold),
+                  textStyle: TextStyle(
+                      fontSize: size.width * 0.055,
+                      fontWeight: FontWeight.bold),
                   onConfirmation: () {
                     Navigator.push(
                       context,
@@ -428,7 +438,7 @@ class _HomeState extends State<Home> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.only(top: size.height * 0.01),
+                                        padding: EdgeInsets.only(top: 15),
                                         child: Container(
                                           width: size.width * 0.08,
                                           height: size.height * 0.05,
@@ -441,7 +451,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: size.height * 0.005),
+                                        padding: EdgeInsets.only(top: 10),
                                         child: Container(
                                           child: Text(
                                             "call center",
@@ -477,7 +487,7 @@ class _HomeState extends State<Home> {
                                   child: Column(
                                     children: [
                                       Padding(
-                                        padding: EdgeInsets.only(top: size.height * 0.01),
+                                        padding: EdgeInsets.only(top: 15),
                                         child: Container(
                                           width: size.width * 0.09,
                                           height: size.height * 0.05,
@@ -490,7 +500,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: size.height * 0.005),
+                                        padding: EdgeInsets.only(top: 10),
                                         child: Container(
                                           child: Text(
                                             "chat robot",
@@ -523,7 +533,7 @@ class _HomeState extends State<Home> {
                                 child: Column(
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(top: size.height * 0.01),
+                                      padding: EdgeInsets.only(top: 15),
                                       child: Container(
                                         width: size.width * 0.09,
                                         height: size.height * 0.05,
@@ -536,7 +546,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: size.height * 0.005),
+                                      padding: EdgeInsets.only(top: 10),
                                       child: Container(
                                         child: Text(
                                           "pengumuman",

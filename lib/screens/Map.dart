@@ -83,7 +83,7 @@ class _PetaState extends State<Peta> {
                       padding: EdgeInsets.only(left: size.width * 0.02),
                       child: Icon(
                         Icons.arrow_drop_up_rounded,
-                        size: 55,
+                        size: size.width * 0.13,
                         color: const Color(0xffEA8F06),
                       ),
                     ),
