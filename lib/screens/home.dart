@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
@@ -47,24 +48,28 @@ class _HomeState extends State<Home> {
                             children: [
                               TextSpan(
                                 text: "SH",
-                                style: GoogleFonts.roboto(
+                                style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins'),
                               ),
                               TextSpan(
                                 text: "O",
                                 style: TextStyle(
                                     fontSize: size.width * 0.07,
                                     color: const Color(0xffEA8F06),
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins'),
                               ),
                               TextSpan(
                                 text: "W BAKSO!",
                                 style: TextStyle(
-                                    fontSize: size.width * 0.07,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600),
+                                  fontSize: size.width * 0.07,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Poppins',
+                                ),
                               )
                             ],
                           ),
@@ -72,7 +77,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.08),
+                      padding: EdgeInsets.only(left: size.width * 0.07),
                       child: Container(
                         width: size.width * 0.1,
                         height: size.height * 0.1,
@@ -93,22 +98,19 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, size.height * 0.035, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, size.height * 0.02, 0, 10),
                 child: Container(
                   width: size.width * 0.9,
                   height: size.height * 0.09,
                   child: Row(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: size.height * 0.04),
-                        child: Container(
-                          width: size.width * 0.18,
-                          height: size.height * 0.18,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      "assets/images/jarumbapakfix.jpg"))),
-                        ),
+                      Container(
+                        width: size.width * 0.18,
+                        height: size.height * 0.18,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    "assets/images/jarumbapakfix.jpg"))),
                       ),
                       Container(
                         child: Column(
@@ -121,16 +123,16 @@ class _HomeState extends State<Home> {
                                     TextSpan(
                                       text: "Selamat Siang ",
                                       style: TextStyle(
-                                        fontSize: size.width * 0.065,
-                                        color: Colors.black,
-                                      ),
+                                          fontSize: size.width * 0.065,
+                                          color: Colors.black,
+                                          fontFamily: 'Poppins'),
                                     ),
                                     TextSpan(
                                       text: "Ade!",
                                       style: TextStyle(
-                                        fontSize: size.width * 0.065,
-                                        color: const Color(0xffEA8F06),
-                                      ),
+                                          fontSize: size.width * 0.065,
+                                          color: const Color(0xffEA8F06),
+                                          fontFamily: 'Poppins'),
                                     ),
                                   ],
                                 ),
@@ -139,7 +141,9 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 "Penjualan mu sedikit lagi memenuhi target, semangat!",
-                                style: TextStyle(fontSize: size.width * 0.025),
+                                style: TextStyle(
+                                    fontSize: size.width * 0.025,
+                                    fontFamily: 'Poppins'),
                               ),
                             ),
                           ],
@@ -192,8 +196,9 @@ class _HomeState extends State<Home> {
                                 Container(
                                   child: Text(
                                     "total transaksi",
-                                    style:
-                                        TextStyle(fontSize: size.width * 0.035),
+                                    style: TextStyle(
+                                        fontSize: size.width * 0.032,
+                                        fontFamily: 'Poppins'),
                                   ),
                                 ),
                                 Padding(
@@ -203,8 +208,9 @@ class _HomeState extends State<Home> {
                                     child: Text(
                                       "Rp 200.000",
                                       style: TextStyle(
-                                          fontSize: size.width * 0.048,
-                                          color: Colors.grey),
+                                          fontSize: size.width * 0.04,
+                                          color: Colors.grey,
+                                          fontFamily: 'Poppins'),
                                     ),
                                   ),
                                 ),
@@ -244,7 +250,8 @@ class _HomeState extends State<Home> {
                                       child: Text(
                                         "mangkuk \nterjual",
                                         style: TextStyle(
-                                            fontSize: size.width * 0.04),
+                                            fontSize: size.width * 0.033,
+                                            fontFamily: 'Poppins'),
                                       ),
                                     ),
                                   ),
@@ -349,16 +356,18 @@ class _HomeState extends State<Home> {
                                           TextSpan(
                                             text: "lihat rekomendasi ",
                                             style: TextStyle(
-                                                fontSize: size.width * 0.045,
+                                                fontSize: size.width * 0.038,
                                                 color: Colors.black,
-                                                fontWeight: FontWeight.w600),
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Poppins'),
                                           ),
                                           TextSpan(
                                             text: "rute",
                                             style: TextStyle(
-                                                fontSize: size.width * 0.045,
+                                                fontSize: size.width * 0.038,
                                                 color: const Color(0xffEA8F06),
-                                                fontWeight: FontWeight.w600),
+                                                fontWeight: FontWeight.w600,
+                                                fontFamily: 'Poppins'),
                                           ),
                                         ],
                                       ),
@@ -386,7 +395,8 @@ class _HomeState extends State<Home> {
                   text: "             Geser untuk Berjualan",
                   textStyle: TextStyle(
                       fontSize: size.width * 0.055,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins'),
                   onConfirmation: () {
                     Navigator.push(
                       context,
@@ -409,7 +419,8 @@ class _HomeState extends State<Home> {
                       Container(
                         child: Text(
                           "Menu utama",
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(
+                              color: Colors.grey, fontFamily: 'Poppins'),
                         ),
                       ),
                       Padding(
@@ -455,8 +466,10 @@ class _HomeState extends State<Home> {
                                         child: Container(
                                           child: Text(
                                             "call center",
-                                            style:
-                                                TextStyle(color: Colors.grey),
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: size.width * 0.033,
+                                                fontFamily: 'Poppins'),
                                           ),
                                         ),
                                       ),
@@ -504,8 +517,10 @@ class _HomeState extends State<Home> {
                                         child: Container(
                                           child: Text(
                                             "chat robot",
-                                            style:
-                                                TextStyle(color: Colors.grey),
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: size.width * 0.033,
+                                                fontFamily: 'Poppins'),
                                           ),
                                         ),
                                       ),
@@ -550,7 +565,10 @@ class _HomeState extends State<Home> {
                                       child: Container(
                                         child: Text(
                                           "pengumuman",
-                                          style: TextStyle(color: Colors.grey),
+                                          style: TextStyle(
+                                              fontSize: size.width * 0.033,
+                                              color: Colors.grey,
+                                              fontFamily: 'Poppins'),
                                         ),
                                       ),
                                     ),

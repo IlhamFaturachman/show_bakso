@@ -61,7 +61,7 @@ class MenuCard extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 0, left: 10),
+                            padding: const EdgeInsets.only(top: 5, left: 10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -70,7 +70,7 @@ class MenuCard extends StatelessWidget {
                                     name,
                                     style: TextStyle(
                                         fontSize: 12,
-                                        fontWeight: FontWeight.bold , color: Colors.black , decoration: TextDecoration.none),
+                                        fontWeight: FontWeight.bold , fontFamily: 'Poppins', color: Colors.black , decoration: TextDecoration.none),
                                   ),
                                 ),
                                 Padding(
@@ -79,7 +79,7 @@ class MenuCard extends StatelessWidget {
                                     child: Text(
                                       harga,
                                       style: TextStyle(
-                                          fontSize: 18, color: Colors.grey , decoration: TextDecoration.none),
+                                          fontSize: 18, color: Colors.grey , fontFamily: 'Poppins' , decoration: TextDecoration.none),
                                     ),
                                   ),
                                 ),

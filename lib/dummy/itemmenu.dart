@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:show_bakso/widget/menu.dart';
+import 'package:show_bakso/template/menu.dart';
 
 class MenuItem extends StatelessWidget {
   const MenuItem({Key key}) : super(key: key);

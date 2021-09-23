@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
-import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/MenuBakso.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 
@@ -74,7 +73,8 @@ class _Peta2State extends State<Peta2> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 13, left: size.width * 0.025),
+                      padding:
+                          EdgeInsets.only(top: 13, left: size.width * 0.025),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,7 +82,9 @@ class _Peta2State extends State<Peta2> {
                             child: Text(
                               "total transaksi",
                               style: TextStyle(
-                                  fontSize: size.width * 0.04, fontWeight: FontWeight.w600),
+                                  fontSize: size.width * 0.03,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                           Padding(
@@ -90,8 +92,10 @@ class _Peta2State extends State<Peta2> {
                             child: Container(
                               child: Text(
                                 "Rp 200.000",
-                                style:
-                                    TextStyle(fontSize: size.width * 0.05, color: Colors.grey),
+                                style: TextStyle(
+                                    fontSize: size.width * 0.042,
+                                    fontFamily: 'Poppins',
+                                    color: Colors.grey),
                               ),
                             ),
                           ),
@@ -99,13 +103,13 @@ class _Peta2State extends State<Peta2> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MenuBakso(),
-                      ),
-                    );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MenuBakso(),
+                          ),
+                        );
                       },
                       child: Padding(
                         padding: EdgeInsets.only(left: size.width * 0.07),
@@ -165,7 +169,9 @@ class _Peta2State extends State<Peta2> {
                       child: Text(
                         "bantuan",
                         style: TextStyle(
-                            fontSize: size.width * 0.058, fontWeight: FontWeight.bold),
+                            fontSize: size.width * 0.05,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -176,7 +182,7 @@ class _Peta2State extends State<Peta2> {
               padding: EdgeInsets.only(
                   left: size.width * 0.8, top: size.height * 0.7),
               child: Container(
-                width: size.width * 0.13,
+                width: 55,
                 height: 55,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -193,7 +199,7 @@ class _Peta2State extends State<Peta2> {
                 child: Center(
                   child: Icon(
                     CupertinoIcons.location,
-                    size: size.width * 0.1,
+                    size: 40,
                     color: const Color(0xffEA8F06),
                   ),
                 ),
@@ -205,25 +211,25 @@ class _Peta2State extends State<Peta2> {
               child: Container(
                 width: size.width * 0.9,
                 height: size.height * 0.12,
-                child: Center(
-                  child: ConfirmationSlider(
-                    height: size.height * 0.12,
-                    foregroundColor: Color(0xffEA5806),
-                    foregroundShape: BorderRadius.circular(50),
-                    backgroundColor: Colors.white,
-                    backgroundShape: BorderRadius.circular(50),
-                    text: "                 Geser untuk Stop Berjualan",
-                    textStyle:
-                        TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    onConfirmation: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Peta(),
-                        ),
-                      );
-                    },
-                  ),
+                child: ConfirmationSlider(
+                  height: size.height * 0.12,
+                  foregroundColor: Color(0xffEA5806),
+                  foregroundShape: BorderRadius.circular(50),
+                  backgroundColor: Colors.white,
+                  backgroundShape: BorderRadius.circular(50),
+                  text: "                  Geser untuk Stop Berjualan",
+                  textStyle: TextStyle(
+                      fontSize: size.width * 0.045,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold),
+                  onConfirmation: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Peta2(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
@@ -261,7 +267,7 @@ class _Peta2State extends State<Peta2> {
         GeoCircle(GeoCoordinates(-7.9829137, 112.6259241), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = Color.fromARGB(160, 0, 144, 138);
+    Color fillColor = Color(0x3341ea06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -273,7 +279,7 @@ class _Peta2State extends State<Peta2> {
         GeoCircle(GeoCoordinates(-7.97651, 112.6362599), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80EA8F06);
+    Color fillColor = const Color(0x33ea8f06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -285,7 +291,7 @@ class _Peta2State extends State<Peta2> {
         GeoCircle(GeoCoordinates(-7.9870115, 112.6367586), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80FF5C4D);
+    Color fillColor = const Color(0x33ea0606);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -297,7 +303,7 @@ class _Peta2State extends State<Peta2> {
         GeoCircle(GeoCoordinates(-7.9933047, 112.625967), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80DAD870);
+    Color fillColor = const Color(0x33ea8f06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -306,10 +312,10 @@ class _Peta2State extends State<Peta2> {
   MapPolygon _lastMapCircle() {
     double radiusInMeters = 500;
     GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9986169,112.6362238), radiusInMeters);
+        GeoCircle(GeoCoordinates(-7.9986169, 112.6362238), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0xB3FC2E20);
+    Color fillColor = const Color(0x3341ea06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;

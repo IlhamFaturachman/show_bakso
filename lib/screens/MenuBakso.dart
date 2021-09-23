@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/widget/itemmenu.dart';
+import 'package:show_bakso/screens/detail_pesanan.dart';
+import 'package:show_bakso/dummy/itemmenu.dart';
 
 import 'Map2.dart';
 
@@ -29,7 +30,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                     child: Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(bottom: size.height * 0.06),
+                          padding: EdgeInsets.only(bottom: 20),
                           child: Container(
                             width: 63.33,
                             height: 63.33,
@@ -50,16 +51,16 @@ class _MenuBaksoState extends State<MenuBakso> {
                                       TextSpan(
                                         text: "Selamat Siang ",
                                         style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.black,
-                                        ),
+                                            fontSize: 20,
+                                            color: Colors.black,
+                                            fontFamily: 'Poppins'),
                                       ),
                                       TextSpan(
                                         text: "Ade!",
                                         style: TextStyle(
-                                          fontSize: 20,
-                                          color: const Color(0xffEA8F06),
-                                        ),
+                                            fontSize: 20,
+                                            color: const Color(0xffEA8F06),
+                                            fontFamily: 'Poppins'),
                                       ),
                                     ],
                                   ),
@@ -68,7 +69,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                               Container(
                                 child: Text(
                                   "Penjualan mu sedikit lagi memenuhi target, semangat!",
-                                  style: TextStyle(fontSize: 10),
+                                  style: TextStyle(
+                                      fontSize: 8, fontFamily: 'Poppins'),
                                 ),
                               ),
                             ],
@@ -122,13 +124,13 @@ class _MenuBaksoState extends State<MenuBakso> {
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsets.only(left: size.width * 0.05),
+                                    EdgeInsets.only(left: size.width * 0.04),
                                 child: Container(
                                   child: Text(
                                     "Batal",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 25),
+                                        fontSize: 22, fontFamily: 'Poppins'),
                                   ),
                                 ),
                               )
@@ -184,8 +186,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                 ],
                               ),
                               Padding(
-                                padding:
-                                     EdgeInsets.only(top: 10, left: size.width * 0.035),
+                                padding: EdgeInsets.only(
+                                    top: 15, left: size.width * 0.035),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -193,8 +195,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                       child: Text(
                                         "total transaksi",
                                         style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w600),
+                                            fontSize: size.width * 0.028,
+                                            fontWeight: FontWeight.w600 , fontFamily: 'Poppins'),
                                       ),
                                     ),
                                     Padding(
@@ -203,8 +205,8 @@ class _MenuBaksoState extends State<MenuBakso> {
                                         child: Text(
                                           "Rp 200.000",
                                           style: TextStyle(
-                                              fontSize: size.width * 0.045,
-                                              color: Colors.grey),
+                                              fontSize: size.width * 0.04,
+                                              color: Colors.grey , fontFamily: 'Poppins'),
                                         ),
                                       ),
                                     ),
@@ -238,53 +240,67 @@ class _MenuBaksoState extends State<MenuBakso> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      bottom: size.height * 0.05, right: size.width * 0.05),
-                  child: Container(
-                    width: size.width * 0.92,
-                    height: 68.41,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color(0xffEA8F06),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: size.width * 0.05, top: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "5 menu",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: size.width * 0.07),
-                              ),
-                              Text(
-                                "klik untuk melanjutkan",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: size.width * 0.035,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPesanan(),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        bottom: size.height * 0.05, right: size.width * 0.05),
+                    child: Container(
+                      width: size.width * 0.92,
+                      height: 68.41,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: const Color(0xffEA8F06),
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: size.width * 0.05, top: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "5 menu",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: size.width * 0.05 , fontFamily: 'Poppins'),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: size.width * 0.15),
-                          child: Container(
-                            child: Text(
-                              "Rp 135.000",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: size.width * 0.06),
+                                Text(
+                                  "klik untuk melanjutkan",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.03,
+                                    fontFamily: 'Poppins'
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: EdgeInsets.only(left: size.width * 0.15),
+                            child: Container(
+                              child: Text(
+                                "Rp 135.000",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.05 , 
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

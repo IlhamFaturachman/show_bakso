@@ -92,8 +92,9 @@ class _PetaState extends State<Peta> {
                       child: Text(
                         "bantuan",
                         style: TextStyle(
-                            fontSize: size.width * 0.058,
-                            fontWeight: FontWeight.bold),
+                            fontSize: size.width * 0.05,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins'),
                       ),
                     )
                   ],
@@ -104,7 +105,7 @@ class _PetaState extends State<Peta> {
               padding: EdgeInsets.only(
                   left: size.width * 0.8, top: size.height * 0.7),
               child: Container(
-                width: size.width * 0.13,
+                width: 55,
                 height: 55,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -121,7 +122,7 @@ class _PetaState extends State<Peta> {
                 child: Center(
                   child: Icon(
                     CupertinoIcons.location,
-                    size: size.width * 0.1,
+                    size: 40,
                     color: const Color(0xffEA8F06),
                   ),
                 ),
@@ -139,9 +140,11 @@ class _PetaState extends State<Peta> {
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Colors.white,
                   backgroundShape: BorderRadius.circular(50),
-                  text: "               Geser untuk Berjualan",
-                  textStyle:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  text: "              Geser untuk Berjualan",
+                  textStyle: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold),
                   onConfirmation: () {
                     Navigator.push(
                       context,
@@ -187,7 +190,7 @@ class _PetaState extends State<Peta> {
         GeoCircle(GeoCoordinates(-7.9829137, 112.6259241), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = Color.fromARGB(160, 0, 144, 138);
+    Color fillColor = Color(0x3341ea06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -199,7 +202,7 @@ class _PetaState extends State<Peta> {
         GeoCircle(GeoCoordinates(-7.97651, 112.6362599), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80EA8F06);
+    Color fillColor = const Color(0x33ea8f06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -211,7 +214,7 @@ class _PetaState extends State<Peta> {
         GeoCircle(GeoCoordinates(-7.9870115, 112.6367586), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80FF5C4D);
+    Color fillColor = const Color(0x33ea0606);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -223,7 +226,7 @@ class _PetaState extends State<Peta> {
         GeoCircle(GeoCoordinates(-7.9933047, 112.625967), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x80DAD870);
+    Color fillColor = const Color(0x33ea8f06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
@@ -235,9 +238,12 @@ class _PetaState extends State<Peta> {
         GeoCircle(GeoCoordinates(-7.9986169, 112.6362238), radiusInMeters);
 
     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0xB3FC2E20);
+    Color fillColor = const Color(0x3341ea06);
     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
     return mapPolygon;
   }
 }
+// 0x33ea0606 abang
+// 0x3341ea06 ijo
+// 0x33ea8f06 oren
