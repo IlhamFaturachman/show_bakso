@@ -205,23 +205,25 @@ class _Peta2State extends State<Peta2> {
               child: Container(
                 width: size.width * 0.9,
                 height: size.height * 0.12,
-                child: ConfirmationSlider(
-                  height: size.height * 0.12,
-                  foregroundColor: Color(0xffEA5806),
-                  foregroundShape: BorderRadius.circular(50),
-                  backgroundColor: Colors.white,
-                  backgroundShape: BorderRadius.circular(50),
-                  text: "                Geser untuk Stop Berjualan",
-                  textStyle:
-                      TextStyle(fontSize: size.width * 0.050, fontWeight: FontWeight.bold),
-                  onConfirmation: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Peta(),
-                      ),
-                    );
-                  },
+                child: Center(
+                  child: ConfirmationSlider(
+                    height: size.height * 0.12,
+                    foregroundColor: Color(0xffEA5806),
+                    foregroundShape: BorderRadius.circular(50),
+                    backgroundColor: Colors.white,
+                    backgroundShape: BorderRadius.circular(50),
+                    text: "                 Geser untuk Stop Berjualan",
+                    textStyle:
+                        TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    onConfirmation: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Peta(),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),

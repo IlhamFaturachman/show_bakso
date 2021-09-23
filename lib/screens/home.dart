@@ -451,7 +451,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: 10),
+                                        padding: EdgeInsets.only(top: 7),
                                         child: Container(
                                           child: Text(
                                             "call center",
@@ -500,7 +500,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: 10),
+                                        padding: EdgeInsets.only(top: 7),
                                         child: Container(
                                           child: Text(
                                             "chat robot",
@@ -546,7 +546,7 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 10),
+                                      padding: EdgeInsets.only(top: 7),
                                       child: Container(
                                         child: Text(
                                           "pengumuman",
