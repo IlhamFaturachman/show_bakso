@@ -133,16 +133,16 @@ class _PetaState extends State<Peta> {
                   left: size.width * 0.05, top: size.height * 0.8),
               child: Container(
                 width: size.width * 0.9,
-                height: size.height * 0.12,
+                height: 77.54,
                 child: ConfirmationSlider(
-                  height: size.height * 0.12,
+                  height: 77.54,
                   foregroundColor: Color(0xff34C700),
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Colors.white,
                   backgroundShape: BorderRadius.circular(50),
                   text: "              Geser untuk Berjualan",
                   textStyle: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold),
                   onConfirmation: () {

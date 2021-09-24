@@ -10,6 +10,7 @@ class ButtonRegister extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
       height: 55.0,
       child: Material(
@@ -36,7 +37,7 @@ class ButtonRegister extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins'),
+                  fontFamily: 'Poppins' , fontSize: size.width * 0.04 ),
             ),
           ),
         ),

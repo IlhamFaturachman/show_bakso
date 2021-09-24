@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MenuCard extends StatelessWidget {
-  final String image, name, harga, jumlah;
+// ignore: must_be_immutable
+class MenuCard extends StatefulWidget {
+  final String image, name, harga;
+  int jumlah;
 
-  const MenuCard({
-    Key key,
-    this.image,
-    this.name,
-    this.harga,
-    this.jumlah,
-    
-  }) : super(key: key);
+  MenuCard({ Key key, this.image, this.name, this.harga, this.jumlah }) : super(key: key);
 
+  @override
+  _MenuCardState createState() => _MenuCardState();
+}
+
+class _MenuCardState extends State<MenuCard> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -55,31 +55,31 @@ class MenuCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage(
-                                        image),
+                                        widget.image),
                                     fit: BoxFit.fill),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 5, left: 10),
+                            padding: const EdgeInsets.only(top: 0, left: 10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   child: Text(
-                                    name,
+                                    widget.name,
                                     style: TextStyle(
                                         fontSize: 12,
-                                        fontWeight: FontWeight.bold , fontFamily: 'Poppins', color: Colors.black , decoration: TextDecoration.none),
+                                        fontWeight: FontWeight.bold , color: Colors.black , decoration: TextDecoration.none),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 5),
                                   child: Container(
                                     child: Text(
-                                      harga,
+                                      widget.harga,
                                       style: TextStyle(
-                                          fontSize: 18, color: Colors.grey , fontFamily: 'Poppins' , decoration: TextDecoration.none),
+                                          fontSize: 18, color: Colors.grey , decoration: TextDecoration.none),
                                     ),
                                   ),
                                 ),
@@ -106,10 +106,19 @@ class MenuCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Center(
-                            child: Icon(
-                              CupertinoIcons.minus,
-                              color: Colors.black,
-                              size: 30,
+                            child: GestureDetector(
+                              child: Icon(
+                                CupertinoIcons.minus,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                              onTap: (){
+                                setState(() {
+                                  if (widget.jumlah > 0) {
+                                    widget.jumlah--;
+                                  }
+                                });
+                              },
                             ),
                           ),
                         ),
@@ -120,14 +129,16 @@ class MenuCard extends StatelessWidget {
                       child: Container(
                         width: size.width * 0.03,
                         child: Text(
-                          jumlah,
+                          widget.jumlah.toString(),
                           style: TextStyle(fontSize: 20 , color: Colors.black),
                         ),
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        //bapak
+                        setState(() {
+                          widget.jumlah++;
+                        });
                       },
                       child: Padding(
                         padding: EdgeInsets.only(left: size.width * 0.03),

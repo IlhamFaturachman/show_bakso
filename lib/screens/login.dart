@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               Container(
-                padding: EdgeInsets.only(left: size.width * 0.05, right: size.width * 0.05, top: size.height * 0.18),
+                padding: EdgeInsets.only(left: size.width * 0.05, right: size.width * 0.05, top: size.height * 0.16),
                 child: Container(
                   child: Column(
                     children: [
@@ -36,14 +36,14 @@ class LoginPage extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Selamat Datang,',
-                          style: TextStyle(fontFamily: 'Poppins', fontSize: 25),
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: size.width * 0.07),
                         ),
                       ),
                       Container(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Silahkan login untuk lanjut',
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: size.width * 0.055),
                         ),
                       ),                     
                       Padding(

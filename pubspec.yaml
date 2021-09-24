@@ -27,6 +27,7 @@ dependencies:
   google_fonts: ^2.1.0
   slide_to_confirm: ^1.1.0
   form_field_validator: ^1.1.0
+  md2_tab_indicator: ^1.0.2
 
   here_sdk:
     path: plugins/here_sdk

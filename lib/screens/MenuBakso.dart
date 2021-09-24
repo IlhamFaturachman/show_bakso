@@ -161,7 +161,7 @@ class _MenuBaksoState extends State<MenuBakso> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                        top: 17, left: size.width * 0.02),
+                                        top: 23, left: size.width * 0.02),
                                     child: Container(
                                       width: 49.72,
                                       height: 26.61,

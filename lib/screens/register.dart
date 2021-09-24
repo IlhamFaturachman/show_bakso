@@ -19,7 +19,7 @@ class RegisterPage extends StatelessWidget {
               children: [
                 Container(
                   width: size.width * 1,
-                  margin: EdgeInsets.only(top: size.height * 0.045),
+                  margin: EdgeInsets.only(top: size.height * 0.055),
                   child: Image.asset(
                     "assets/images/Vector2.png",fit: BoxFit.cover,
                   ),
@@ -28,7 +28,7 @@ class RegisterPage extends StatelessWidget {
                   padding: EdgeInsets.only(
                       left: size.width * 0.05,
                       right: size.width * 0.05,
-                      top: size.height * 0.17),
+                      top: size.height * 0.16),
                   child: Container(
                     child: Column(
                       children: [
@@ -37,14 +37,14 @@ class RegisterPage extends StatelessWidget {
                           child: Text(
                             'Buat Akun,',
                             style:
-                                TextStyle(fontFamily: 'Poppins', fontSize: 25),
+                                TextStyle(fontFamily: 'Poppins', fontSize: size.width * 0.07),
                           ),
                         ),
                         Container(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'Silahkan register untuk daftar',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: size.width * 0.055),
                           ),
                         ),
                         Padding(

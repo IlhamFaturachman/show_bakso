@@ -37,7 +37,7 @@ class ButtonLogin extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins'),
+                  fontFamily: 'Poppins' , fontSize: size.width * 0.04),
             ),
           ),
         ),

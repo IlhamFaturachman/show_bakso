@@ -260,7 +260,7 @@ class _HomeState extends State<Home> {
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
-                                            top: size.height * 0.025,
+                                            top: 25,
                                           ),
                                           child: Container(
                                             width: size.width * 0.13,
@@ -385,9 +385,9 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 width: size.width * 0.9,
-                height: size.height * 0.1,
+                height: 77.54,
                 child: ConfirmationSlider(
-                  height: size.height * 0.1,
+                  height: 77.54,
                   foregroundColor: Color(0xffEA8F06),
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Color(0xFFfef6ea),
@@ -462,13 +462,13 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: 7),
+                                        padding: EdgeInsets.only(top : 5),
                                         child: Container(
                                           child: Text(
                                             "call center",
                                             style: TextStyle(
                                                 color: Colors.grey,
-                                                fontSize: size.width * 0.033,
+                                                fontSize: 12,
                                                 fontFamily: 'Poppins'),
                                           ),
                                         ),
@@ -513,13 +513,13 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top: 7),
+                                        padding: EdgeInsets.only(top: 5),
                                         child: Container(
                                           child: Text(
                                             "chat robot",
                                             style: TextStyle(
                                                 color: Colors.grey,
-                                                fontSize: size.width * 0.033,
+                                                fontSize: 12,
                                                 fontFamily: 'Poppins'),
                                           ),
                                         ),
@@ -561,12 +561,12 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 7),
+                                      padding: EdgeInsets.only(top: 5),
                                       child: Container(
                                         child: Text(
                                           "pengumuman",
                                           style: TextStyle(
-                                              fontSize: size.width * 0.033,
+                                              fontSize: 12,
                                               color: Colors.grey,
                                               fontFamily: 'Poppins'),
                                         ),

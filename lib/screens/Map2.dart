@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
+import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/MenuBakso.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 
@@ -210,23 +211,23 @@ class _Peta2State extends State<Peta2> {
                   left: size.width * 0.05, top: size.height * 0.8),
               child: Container(
                 width: size.width * 0.9,
-                height: size.height * 0.12,
+                height: 77.54,
                 child: ConfirmationSlider(
-                  height: size.height * 0.12,
+                  height: 77.54,
                   foregroundColor: Color(0xffEA5806),
                   foregroundShape: BorderRadius.circular(50),
                   backgroundColor: Colors.white,
                   backgroundShape: BorderRadius.circular(50),
                   text: "                  Geser untuk Stop Berjualan",
                   textStyle: TextStyle(
-                      fontSize: size.width * 0.045,
+                      fontSize: 15,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold),
                   onConfirmation: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Peta2(),
+                        builder: (context) => Peta(),
                       ),
                     );
                   },
