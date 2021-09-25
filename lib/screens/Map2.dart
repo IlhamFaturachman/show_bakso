@@ -5,6 +5,7 @@ import 'package:here_sdk/mapview.dart';
 import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/MenuBakso.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
+// import 'package:show_bakso/template/dialog.dart';
 
 class Peta2 extends StatefulWidget {
   @override
@@ -155,27 +156,32 @@ class _Peta2State extends State<Peta2> {
                     ),
                   ],
                 ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.02),
-                      child: Icon(
-                        Icons.arrow_drop_up_rounded,
-                        size: size.width * 0.13,
-                        color: const Color(0xffEA8F06),
+                child: GestureDetector(
+                  onTap: () {
+                    _showDialog(context);
+                  },
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: size.width * 0.02),
+                        child: Icon(
+                          Icons.arrow_drop_up_rounded,
+                          size: size.width * 0.13,
+                          color: const Color(0xffEA8F06),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: size.width * 0.03),
-                      child: Text(
-                        "bantuan",
-                        style: TextStyle(
-                            fontSize: size.width * 0.05,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding: EdgeInsets.only(left: size.width * 0.03),
+                        child: Text(
+                          "bantuan",
+                          style: TextStyle(
+                              fontSize: size.width * 0.05,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -321,4 +327,118 @@ class _Peta2State extends State<Peta2> {
 
     return mapPolygon;
   }
+}
+
+void _showDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        var size = MediaQuery.of(context).size;
+        return Dialog(
+          insetPadding: EdgeInsets.only(right: size.width * 0.12, bottom: size.height * 0.05),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          child: Container(
+            width: 196,
+            height: 255,
+            child: Column(
+              children: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 196),
+                    child: Container(
+                      width: 24,
+                      height: 24,
+                      child: Icon(
+                        Icons.cancel_outlined,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 10),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0xffEA0606),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Container(
+                            child: Text(
+                              "Ramai",
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 10),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0xffFFE600),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Container(
+                            child: Text(
+                              "Moderat",
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 10),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 45,
+                          height: 45,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0xff02C716),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Container(
+                            child: Text(
+                              "Tidak Terlalu Ramai",
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      });
 }

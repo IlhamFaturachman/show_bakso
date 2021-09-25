@@ -51,7 +51,7 @@ class TransaksiCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: size.width * 0.2, top: size.width * 0.03),
+                  padding: EdgeInsets.only(left: size.width * 0.15, top: size.width * 0.03),
                   child: Container(
                     width: size.width * 0.2,
                     child: Text(
