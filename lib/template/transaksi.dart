@@ -21,7 +21,7 @@ class TransaksiCard extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: size.width * 0.45,
+                  width: size.width * 0.6,
                   child: Row(
                     children: [
                       Padding(
@@ -51,7 +51,7 @@ class TransaksiCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: size.width * 0.15, top: size.width * 0.03),
+                  padding: EdgeInsets.only(left: size.width * 0.05, top: size.width * 0.03),
                   child: Container(
                     width: size.width * 0.2,
                     child: Text(

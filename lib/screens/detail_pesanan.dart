@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:show_bakso/dummy/itemorder.dart';
 import 'package:show_bakso/dummy/itempajak.dart';
 import 'package:show_bakso/dummy/itemtotal.dart';
 import 'package:show_bakso/dummy/itemtransaksi.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
+import 'package:show_bakso/screens/jumlah_lain.dart';
 
 import 'Qr.dart';
 
@@ -348,21 +348,34 @@ class _DetailPesananState extends State<DetailPesanan>
                                             ),
                                           ),
                                         ),
-                                        Container(
-                                          width: size.width * 0.4,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 20),
-                                            child: Center(
-                                              child: Text(
-                                                "Jumlah lain",
-                                                style: TextStyle(
-                                                  fontSize: 18,
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    JumlahLain(),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            width: size.width * 0.4,
+                                            decoration: BoxDecoration(
+                                              color: Colors.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 10,
+                                                      horizontal: 20),
+                                              child: Center(
+                                                child: Text(
+                                                  "Jumlah lain",
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                  ),
                                                 ),
                                               ),
                                             ),

@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/Map2.dart';
