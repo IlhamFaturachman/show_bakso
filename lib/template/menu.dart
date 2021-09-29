@@ -1,15 +1,16 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/screens/detail_pesanan.dart';
+// import 'package:show_bakso/screens/detail_pesanan.dart';
+import 'package:show_bakso/model/menuModel.dart';
+import 'package:show_bakso/screens/MenuBakso.dart';
 
 // ignore: must_be_immutable
 class MenuCard extends StatefulWidget {
-  final String image, name, harga;
-  int jumlah;
+  final String image, name;
+  int jumlah,harga;
+  Bakso menu;
 
-  MenuCard({Key key, this.image, this.name, this.harga, this.jumlah})
+  MenuCard( {Key key, this.image, this.name, this.harga, this.jumlah , this.menu})
       : super(key: key);
 
   @override
@@ -17,6 +18,8 @@ class MenuCard extends StatefulWidget {
 }
 
 class _MenuCardState extends State<MenuCard> {
+
+  int jumlah1;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -44,7 +47,7 @@ class _MenuCardState extends State<MenuCard> {
                           )
                         ],
                       ),
-                      child: Row(
+                      child: Row( 
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
@@ -81,7 +84,7 @@ class _MenuCardState extends State<MenuCard> {
                                   padding: const EdgeInsets.only(top: 5),
                                   child: Container(
                                     child: Text(
-                                      widget.harga,
+                                      widget.harga.toString(),
                                       style: TextStyle(
                                           fontSize: 18,
                                           color: Colors.grey,
@@ -144,6 +147,7 @@ class _MenuCardState extends State<MenuCard> {
                       onTap: () {
                         setState(() {
                           widget.jumlah++;
+                          
                         });
                       },
                       child: Padding(
@@ -171,88 +175,6 @@ class _MenuCardState extends State<MenuCard> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: size.height * 0.04, bottom: size.height * 0.04),
-                child: Container(
-                  width: size.width * 0.9,
-                  child: Divider(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    if (widget.jumlah > 0) {
-                      // ignore: unused_local_variable
-                      List<Map<String, dynamic>> order1 = [];
-                      order1 = [
-                        {'Nama': widget.name},
-                        {'Harga': widget.harga},
-                        {'Jumlah': widget.jumlah},
-                      ];
-                    }
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailPesanan(),
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      bottom: size.height * 0.05, right: size.width * 0.05),
-                  child: Container(
-                    width: size.width * 0.92,
-                    height: 68.41,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color(0xffEA8F06),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: size.width * 0.05, top: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "5 menu",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: size.width * 0.05,
-                                    fontFamily: 'Poppins'),
-                              ),
-                              Text(
-                                "klik untuk melanjutkan",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: size.width * 0.03,
-                                    fontFamily: 'Poppins'),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: size.width * 0.15),
-                          child: Container(
-                            child: Text(
-                              "Rp 135.000",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: size.width * 0.05,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
@@ -260,3 +182,4 @@ class _MenuCardState extends State<MenuCard> {
     );
   }
 }
+

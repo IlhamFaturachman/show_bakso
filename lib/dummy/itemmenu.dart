@@ -1,67 +1,61 @@
+// ignore_for_file: type_init_formals
+
 import 'package:flutter/material.dart';
 import 'package:show_bakso/model/menuModel.dart';
 import 'package:show_bakso/template/menu.dart';
 
+// ignore: must_be_immutable
 class MenuItem extends StatefulWidget {
-  const MenuItem({Key key}) : super(key: key);
+
+  Bakso menu1 ,menu2 , menu3 , menu4 , menu5;
+  MenuItem( Bakso this.menu1, Bakso this.menu2 , Bakso this.menu3, Bakso this.menu4, Bakso this.menu5, {Key key}) : super(key: key);
 
   @override
   _MenuItemState createState() => _MenuItemState();
 }
-
 class _MenuItemState extends State<MenuItem> {
   int jumlah = 0;
-  // List<Map<String, dynamic>> order1 = [
-  //   {'name': 'Paket bakso 1','harga': 'Rp. 30000', 'jumlah':0 },
-  //   {'name': 'Paket bakso 1','harga': 'Rp. 25000','jumlah':0},
-  // ];
-
-  List<MenuModel> order;
-
-
-  // void solveArray(){
-  //   for (var i = 0; i < order1.length; i++) {
-  //     MenuCard(order1[i].name)
-  //   }
-  // }
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: [
-        
-        
-          // MenuCard(
-          //   image: "assets/images/baksolast.png",
-          //   name: "Paket Bakso 1",
-          //   harga: "Rp 30.000",
-          //   jumlah: jumlah,
-          // ),
-          // MenuCard(
-          //   image: "assets/images/baksolast.png",
-          //   name: "Paket Bakso 2",
-          //   harga: "Rp 25.000",
-          //   jumlah: jumlah
-          // ),
-          // MenuCard(
-          //   image: "assets/images/baksolast.png",
-          //   name: "Paket Bakso 3",
-          //   harga: "Rp 15.000",
-          //   jumlah: jumlah,
-          // ),
-          // MenuCard(
-          //   image: "assets/images/baksolast.png",
-          //   name: "Paket Bakso 3",
-          //   harga: "Rp 15.000",
-          //   jumlah: jumlah,
-          // ),
-          // MenuCard(
-          //   image: "assets/images/baksolast.png",
-          //   name: "Paket Bakso 4",
-          //   harga: "Rp 14.000",
-          //   jumlah: jumlah,
-          // ),
+          MenuCard(
+            menu : widget.menu1,
+            image: widget.menu1.image,
+            name: widget.menu1.name,
+            harga: widget.menu1.harga,
+            jumlah: widget.menu1.jumlah,
+          ),
+          MenuCard(
+            menu : widget.menu2,
+            image: widget.menu2.image,
+            name: widget.menu2.name,
+            harga: widget.menu2.harga,
+            jumlah: widget.menu2.jumlah,
+          ),
+          MenuCard(
+            menu : widget.menu3,
+            image: widget.menu3.image,
+            name: widget.menu3.name,
+            harga: widget.menu3.harga,
+            jumlah: widget.menu3.jumlah,
+          ),
+          MenuCard(
+            menu : widget.menu4,
+            image: widget.menu4.image,
+            name: widget.menu4.name,
+            harga: widget.menu4.harga,
+            jumlah: widget.menu4.jumlah,
+          ),
+          MenuCard(
+            menu : widget.menu5,
+            image: widget.menu5.image,
+            name: widget.menu5.name,
+            harga: widget.menu5.harga,
+            jumlah: widget.menu5.jumlah,
+          ),
         ],
       ),
     );

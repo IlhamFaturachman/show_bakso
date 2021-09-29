@@ -1,15 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/dummy/itemorder.dart';
 import 'package:show_bakso/dummy/itempajak.dart';
 import 'package:show_bakso/dummy/itemtotal.dart';
 import 'package:show_bakso/dummy/itemtransaksi.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
+import 'package:show_bakso/model/menuModel.dart';
 import 'package:show_bakso/screens/jumlah_lain.dart';
 
 import 'Qr.dart';
 
+// ignore: must_be_immutable
 class DetailPesanan extends StatefulWidget {
-  const DetailPesanan({Key key}) : super(key: key);
+  final String name, harga, image;
+  Bakso order;
+  int jumlah;
+
+  DetailPesanan(this.order,
+      {Key key, this.name, this.harga, this.image, this.jumlah})
+      : super(key: key);
 
   @override
   _DetailPesananState createState() => _DetailPesananState();
@@ -17,8 +25,8 @@ class DetailPesanan extends StatefulWidget {
 
 class _DetailPesananState extends State<DetailPesanan>
     with TickerProviderStateMixin {
+      
   TabController _tabController;
-
   @override
   void initState() {
     super.initState();
@@ -66,7 +74,155 @@ class _DetailPesananState extends State<DetailPesanan>
                           fontFamily: 'Poppins'),
                     ),
                     Container(
-                      child: ItemOrder(),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: size.width * 0.03, top: 20),
+                              child: Container(
+                                height: 200,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: size.width * 0.28,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 3),
+                                            child: Text(
+                                              widget.order.name,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 3),
+                                            child: Text(
+                                              widget.order.harga.toString(),
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 0),
+                                            child: Row(
+                                              children: [
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    //bapak
+                                                  },
+                                                  child: Container(
+                                                    width: 25,
+                                                    height: 25,
+                                                    decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                        width: 3,
+                                                        color: const Color(
+                                                            0xffEA8F06),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                    ),
+                                                    child: Center(
+                                                      child: GestureDetector(
+                                                        child: Icon(
+                                                          CupertinoIcons.minus,
+                                                          color: Colors.black,
+                                                          size: 12,
+                                                        ),
+                                                        onTap: () {
+                                                          setState(() {
+                                                            if (widget.jumlah >
+                                                                0) {
+                                                              widget.jumlah--;
+                                                            }
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: size.width * 0.03),
+                                                  child: Container(
+                                                    width: size.width * 0.03,
+                                                    child: Text(
+                                                      '${widget.order.jumlah}'
+                                                          .toString(),
+                                                      style: TextStyle(
+                                                          fontSize: 20,
+                                                          color: Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      widget.jumlah++;
+                                                    });        
+                                                  },
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left:
+                                                            size.width * 0.03),
+                                                    child: Container(
+                                                      width: 25,
+                                                      height: 25,
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          width: 3,
+                                                          color: const Color(
+                                                              0xffEA8F06),
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20),
+                                                      ),
+                                                      child: Center(
+                                                        child: Icon(
+                                                          CupertinoIcons.add,
+                                                          color: Colors.black,
+                                                          size: 12,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: size.width * 0.3, top: 10),
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            widget.order.image),
+                                        fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.circular(20)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 20),

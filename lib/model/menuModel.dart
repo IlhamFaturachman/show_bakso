@@ -1,12 +1,15 @@
-class MenuModel{
-  String image;
-  String name;
-  String harga;
+class Bakso {
   int jumlah;
-  MenuModel({
-    this.name,
-    this.harga,
+  String name;
+  String image;
+  int harga;
+
+  Bakso({
     this.jumlah,
+    this.name,
     this.image,
+    this.harga,
   });
+
 }
+

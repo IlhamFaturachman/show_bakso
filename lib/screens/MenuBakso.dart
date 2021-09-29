@@ -1,16 +1,49 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:show_bakso/screens/detail_pesanan.dart';
 import 'package:show_bakso/dummy/itemmenu.dart';
+import 'package:show_bakso/model/menuModel.dart';
+import 'package:show_bakso/screens/detail_pesanan.dart';
 
 import 'Map2.dart';
 
 class MenuBakso extends StatefulWidget {
+
   @override
   _MenuBaksoState createState() => _MenuBaksoState();
 }
 
 class _MenuBaksoState extends State<MenuBakso> {
+
+  Bakso menu1 = Bakso(
+      jumlah: 0,
+      name: "Paket Bakso 1",
+      image: "assets/images/baksolast.png",
+      harga: 16000);
+
+  Bakso menu2 = Bakso(
+      jumlah: 0,
+      name: "Paket Bakso 2",
+      image: "assets/images/baksolast.png",
+      harga: 15000);
+
+  Bakso menu3 = Bakso(
+      jumlah: 0,
+      name: "Paket Bakso 3",
+      image: "assets/images/baksolast.png",
+      harga: 16000);
+
+  Bakso menu4 = Bakso(
+      jumlah: 0,
+      name: "Paket Bakso 4",
+      image: "assets/images/baksolast.png",
+      harga: 16000);
+      
+  Bakso menu5 = Bakso(
+      jumlah: 0,
+      name: "Paket Bakso 5",
+      image: "assets/images/baksolast.png",
+      harga: 16000);
+  
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -229,7 +262,83 @@ class _MenuBaksoState extends State<MenuBakso> {
                     ),
                   ),
                 ),
-                MenuItem(),
+                MenuItem(menu1 , menu2 , menu3, menu4, menu5),
+                Padding(
+                padding: EdgeInsets.only(
+                    top: size.height * 0.04, bottom: size.height * 0.04),
+                child: Container(
+                  width: size.width * 0.9,
+                  child: Divider(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  // setState(() {
+                    
+                  // });
+                  if ( menu1.jumlah == 0) {
+                      Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailPesanan(menu1),
+                    ),
+                  );
+                    }
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      bottom: size.height * 0.05, right: size.width * 0.05),
+                  child: Container(
+                    width: size.width * 0.92,
+                    height: 68.41,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color(0xffEA8F06),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: size.width * 0.05, top: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "5 menu",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.05,
+                                    fontFamily: 'Poppins'),
+                              ),
+                              Text(
+                                "klik untuk melanjutkan",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.03,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: size.width * 0.15),
+                          child: Container(
+                            child: Text(
+                              "Rp 135.000",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: size.width * 0.05,
+                                  fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               ],
             ),
           ),
@@ -238,3 +347,4 @@ class _MenuBaksoState extends State<MenuBakso> {
     );
   }
 }
+
