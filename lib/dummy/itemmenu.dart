@@ -22,35 +22,30 @@ class _MenuItemState extends State<MenuItem> {
       child: Column(
         children: [
           MenuCard(
-            menu : widget.menu1,
             image: widget.menu1.image,
             name: widget.menu1.name,
             harga: widget.menu1.harga,
             jumlah: widget.menu1.jumlah,
           ),
           MenuCard(
-            menu : widget.menu2,
             image: widget.menu2.image,
             name: widget.menu2.name,
             harga: widget.menu2.harga,
             jumlah: widget.menu2.jumlah,
           ),
           MenuCard(
-            menu : widget.menu3,
             image: widget.menu3.image,
             name: widget.menu3.name,
             harga: widget.menu3.harga,
             jumlah: widget.menu3.jumlah,
           ),
           MenuCard(
-            menu : widget.menu4,
             image: widget.menu4.image,
             name: widget.menu4.name,
             harga: widget.menu4.harga,
             jumlah: widget.menu4.jumlah,
           ),
           MenuCard(
-            menu : widget.menu5,
             image: widget.menu5.image,
             name: widget.menu5.name,
             harga: widget.menu5.harga,

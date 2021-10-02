@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 // ignore: must_be_immutable
 class OrderCard extends StatefulWidget {
-  final String name, harga, image;
-  int jumlah;
+  final String name, image;
+  int jumlah , harga;
 
   OrderCard({Key key, this.name, this.harga, this.image, this.jumlah})
       : super(key: key);
@@ -44,7 +45,7 @@ class _OrderCardState extends State<OrderCard> {
                         Padding(
                           padding: EdgeInsets.only(top: 3),
                           child: Text(
-                            widget.harga,
+                            NumberFormat.currency(locale: 'id',symbol: 'Rp ',decimalDigits: 0).format(int.parse(widget.harga.toString())),
                             style: TextStyle(fontFamily: 'Poppins'),
                           ),
                         ),

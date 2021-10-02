@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
@@ -5,6 +7,8 @@ import 'package:here_sdk/mapview.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/screens/home.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
 class Peta extends StatefulWidget {
   @override
@@ -167,7 +171,29 @@ class _PetaState extends State<Peta> {
     );
   }
 
-  void onMapCreated(HereMapController hereMapController) {
+// _getCurrentLocation() {
+//     Geolocator
+//       .getCurrentPosition(desiredAccuracy: LocationAccuracy.best, forceAndroidLocationManager: true)
+//       .then((Position position) {
+//           return _currentposition = position;
+//       }).catchError((e) {
+//         print(e);
+//       });
+//   }
+  Widget _createWidget() {
+    return Container(
+      width: 40,
+      height: 40,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/pinBakso.png"),
+        ),
+      ),
+    );
+  }
+
+  void onMapCreated(HereMapController hereMapController) async {
     hereMapController.mapScene.loadSceneForMapScheme(
       MapScheme.normalDay,
       (error) {
@@ -185,8 +211,11 @@ class _PetaState extends State<Peta> {
     hereMapController.mapScene.addMapPolygon(_lastMapCircle());
 
     double distance = 2000;
+    Position position = await Geolocator.getCurrentPosition();
     hereMapController.camera.lookAtPointWithDistance(
-        GeoCoordinates(-7.9829137, 112.6259241), distance);
+        GeoCoordinates(position.latitude, position.longitude), distance);
+    hereMapController.pinWidget(
+        _createWidget(), GeoCoordinates(position.latitude, position.longitude));
   }
 
   MapPolygon _createMapCircle() {

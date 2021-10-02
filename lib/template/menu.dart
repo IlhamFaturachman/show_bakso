@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:show_bakso/screens/detail_pesanan.dart';
+import 'package:intl/intl.dart';
 import 'package:show_bakso/model/menuModel.dart';
-import 'package:show_bakso/screens/MenuBakso.dart';
 
 // ignore: must_be_immutable
 class MenuCard extends StatefulWidget {
   final String image, name;
-  int jumlah,harga;
-  Bakso menu;
+  int jumlah, harga;
 
-  MenuCard( {Key key, this.image, this.name, this.harga, this.jumlah , this.menu})
+  MenuCard({Key key, this.image, this.name, this.harga, this.jumlah})
       : super(key: key);
 
   @override
@@ -18,7 +16,6 @@ class MenuCard extends StatefulWidget {
 }
 
 class _MenuCardState extends State<MenuCard> {
-
   int jumlah1;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +44,7 @@ class _MenuCardState extends State<MenuCard> {
                           )
                         ],
                       ),
-                      child: Row( 
+                      child: Row(
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(
@@ -84,7 +81,7 @@ class _MenuCardState extends State<MenuCard> {
                                   padding: const EdgeInsets.only(top: 5),
                                   child: Container(
                                     child: Text(
-                                      widget.harga.toString(),
+                                      NumberFormat.currency(locale: 'id',symbol: 'Rp ',decimalDigits: 0).format(int.parse(widget.harga.toString())),
                                       style: TextStyle(
                                           fontSize: 18,
                                           color: Colors.grey,
@@ -125,6 +122,12 @@ class _MenuCardState extends State<MenuCard> {
                                 setState(() {
                                   if (widget.jumlah > 0) {
                                     widget.jumlah--;
+                                    Order(
+                                      jumlah: widget.jumlah,
+                                      name: widget.name,
+                                      image: widget.image,
+                                      harga: widget.harga,
+                                    );
                                   }
                                 });
                               },
@@ -147,7 +150,14 @@ class _MenuCardState extends State<MenuCard> {
                       onTap: () {
                         setState(() {
                           widget.jumlah++;
-                          
+                          if (widget.jumlah > 0) {
+                            Order(
+                              jumlah: widget.jumlah,
+                              name: widget.name,
+                              image: widget.image,
+                              harga: widget.harga,
+                            );
+                          }
                         });
                       },
                       child: Padding(
@@ -182,4 +192,3 @@ class _MenuCardState extends State<MenuCard> {
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TotalCard extends StatelessWidget {
   final String total;
@@ -25,7 +26,7 @@ class TotalCard extends StatelessWidget {
             padding: EdgeInsets.only(left: size.width * 0.05),
             child: Container(
               child: Text(
-                total,
+                NumberFormat.currency(locale: 'id',symbol: 'Rp ',decimalDigits: 0).format(num.parse(total.toString())),
                 style: TextStyle(fontFamily: 'Poppins'),
               ),
             ),

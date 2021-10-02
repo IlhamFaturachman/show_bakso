@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class TransaksiCard extends StatelessWidget {
-  final String name, jumlah, harga, pajak;
+  final String name, pajak;
+  int jumlah, harga;
 
-  const TransaksiCard({
+  TransaksiCard({
     Key key,
     this.name,
     this.jumlah,
@@ -43,7 +46,7 @@ class TransaksiCard extends StatelessWidget {
                         padding: EdgeInsets.only(
                             left: size.width * 0.05, top: size.width * 0.03),
                         child: Text(
-                          jumlah,
+                          jumlah.toString(),
                           style: TextStyle(fontFamily: 'Poppins'),
                         ),
                       ),
@@ -51,11 +54,12 @@ class TransaksiCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: size.width * 0.05, top: size.width * 0.03),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.05, top: size.width * 0.03),
                   child: Container(
                     width: size.width * 0.2,
                     child: Text(
-                      harga,
+                      NumberFormat.currency(locale: 'id',symbol: 'Rp ',decimalDigits: 0).format(int.parse(harga.toString())),
                       style: TextStyle(fontFamily: 'Poppins'),
                     ),
                   ),

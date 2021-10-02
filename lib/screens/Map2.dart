@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
 import 'package:show_bakso/screens/Map.dart';
-import 'package:show_bakso/screens/MenuBakso.dart';
+import 'package:show_bakso/screens/menupanjang.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 // import 'package:show_bakso/template/dialog.dart';
 
@@ -109,7 +110,7 @@ class _Peta2State extends State<Peta2> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MenuBakso(),
+                            builder: (context) => Menupanjang(),
                           ),
                         );
                       },
@@ -246,7 +247,20 @@ class _Peta2State extends State<Peta2> {
     );
   }
 
-  void onMapCreated(HereMapController hereMapController) {
+Widget _createWidget() {
+    return Container(
+      width: 40,
+      height: 40,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/pinBakso.png"),
+        ),
+      ),
+    );
+  }
+
+  void onMapCreated(HereMapController hereMapController) async {
     hereMapController.mapScene.loadSceneForMapScheme(
       MapScheme.normalDay,
       (error) {
@@ -264,8 +278,11 @@ class _Peta2State extends State<Peta2> {
     hereMapController.mapScene.addMapPolygon(_lastMapCircle());
 
     double distance = 2000;
+    Position position = await Geolocator.getCurrentPosition();
     hereMapController.camera.lookAtPointWithDistance(
-        GeoCoordinates(-7.9829137, 112.6259241), distance);
+        GeoCoordinates(position.latitude, position.longitude), distance);
+    hereMapController.pinWidget(
+        _createWidget(), GeoCoordinates(position.latitude, position.longitude));
   }
 
   MapPolygon _createMapCircle() {
