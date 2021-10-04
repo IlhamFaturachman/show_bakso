@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:show_bakso/model/menuModel.dart';
 
 // ignore: must_be_immutable
@@ -16,6 +17,11 @@ class ButtonMenu extends StatefulWidget {
 class _ButtonMenuState extends State<ButtonMenu> {
   @override
   Widget build(BuildContext context) {
+    num totalharga = widget.order1.harga * widget.order1.jumlah +
+        widget.order2.harga * widget.order2.jumlah +
+        widget.order3.harga * widget.order3.jumlah +
+        widget.order4.harga * widget.order4.jumlah +
+        widget.order5.harga * widget.order5.jumlah;
     var size = MediaQuery.of(context).size;
     return Padding(
       padding:
@@ -36,12 +42,12 @@ class _ButtonMenuState extends State<ButtonMenu> {
                 children: [
                   Text(
                     (widget.order1.jumlah +
-                            widget.order2.jumlah +
-                            widget.order3.jumlah +
-                            widget.order4.jumlah +
-                            widget.order5.jumlah)
-                        .toString() + " Menu",
-                        
+                                widget.order2.jumlah +
+                                widget.order3.jumlah +
+                                widget.order4.jumlah +
+                                widget.order5.jumlah)
+                            .toString() +
+                        " Menu",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: size.width * 0.05,
@@ -61,12 +67,9 @@ class _ButtonMenuState extends State<ButtonMenu> {
               padding: EdgeInsets.only(left: size.width * 0.15),
               child: Container(
                 child: Text(
-                  (widget.order1.harga * widget.order1.jumlah +
-                          widget.order2.harga * widget.order2.jumlah +
-                          widget.order3.harga * widget.order3.jumlah +
-                          widget.order4.harga * widget.order4.jumlah +
-                          widget.order5.harga * widget.order5.jumlah)
-                      .toString(),
+                  NumberFormat.currency(
+                          locale: 'id', symbol: 'Rp ', decimalDigits: 0)
+                      .format(num.parse(totalharga.toString())),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: size.width * 0.05,

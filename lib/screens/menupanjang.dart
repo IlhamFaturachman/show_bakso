@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:show_bakso/model/menuModel.dart';
+import 'package:show_bakso/screens/detailPesananpanjang.dart';
 import 'package:show_bakso/screens/detail_pesanan.dart';
 import 'package:show_bakso/widget/ButtonMenu.dart';
 
@@ -390,11 +391,14 @@ class _MenupanjangState extends State<Menupanjang> {
                                   padding:
                                       EdgeInsets.only(left: size.width * 0.03),
                                   child: Container(
-                                    width: size.width * 0.03,
-                                    child: Text(
-                                      menu1.jumlah.toString(),
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
+                                    width: size.width * 0.05,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        menu1.jumlah.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -561,11 +565,14 @@ class _MenupanjangState extends State<Menupanjang> {
                                   padding:
                                       EdgeInsets.only(left: size.width * 0.03),
                                   child: Container(
-                                    width: size.width * 0.03,
-                                    child: Text(
-                                      menu2.jumlah.toString(),
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
+                                    width: size.width * 0.05,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        menu2.jumlah.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -732,11 +739,14 @@ class _MenupanjangState extends State<Menupanjang> {
                                   padding:
                                       EdgeInsets.only(left: size.width * 0.03),
                                   child: Container(
-                                    width: size.width * 0.03,
-                                    child: Text(
-                                      menu3.jumlah.toString(),
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
+                                    width: size.width * 0.05,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        menu3.jumlah.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -903,11 +913,14 @@ class _MenupanjangState extends State<Menupanjang> {
                                   padding:
                                       EdgeInsets.only(left: size.width * 0.03),
                                   child: Container(
-                                    width: size.width * 0.03,
-                                    child: Text(
-                                      menu4.jumlah.toString(),
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
+                                    width: size.width * 0.05,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        menu4.jumlah.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1074,11 +1087,14 @@ class _MenupanjangState extends State<Menupanjang> {
                                   padding:
                                       EdgeInsets.only(left: size.width * 0.03),
                                   child: Container(
-                                    width: size.width * 0.03,
-                                    child: Text(
-                                      menu5.jumlah.toString(),
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
+                                    width: size.width * 0.05,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        menu5.jumlah.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -1135,7 +1151,7 @@ class _MenupanjangState extends State<Menupanjang> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            DetailPesanan(menu1, menu2, menu3, menu4, menu5),
+                            DetailPesananPanjang(menu1, menu2, menu3, menu4, menu5),
                       ),
                     );
                   },

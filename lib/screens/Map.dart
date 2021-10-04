@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
@@ -8,7 +6,7 @@ import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/screens/home.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:location/location.dart';
+
 
 class Peta extends StatefulWidget {
   @override

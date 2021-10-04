@@ -32,6 +32,7 @@ dependencies:
   shared_preferences: ^2.0.8
   geolocator: ^7.6.2
   location: ^4.3.0
+  auto_size_text_field: ^1.0.1
 
 
   here_sdk:

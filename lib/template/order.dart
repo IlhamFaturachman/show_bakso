@@ -78,6 +78,7 @@ class _OrderCardState extends State<OrderCard> {
                                         setState(() {
                                           if (widget.jumlah > 0) {
                                             widget.jumlah--;
+                                            
                                           }
                                         });
                                       },

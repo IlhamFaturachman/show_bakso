@@ -23,11 +23,32 @@ class PajakCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: size.width * 0.05),
-            child: Text(
-              NumberFormat.currency(locale: 'id',symbol: 'Rp ',decimalDigits: 0).format(num.parse(totalPajak.toString())),
-              style: TextStyle(
-                  fontFamily: 'Poppins', fontWeight: FontWeight.normal),
+            padding: EdgeInsets.only(left: size.width * 0.02),
+            child: Container(
+              width: size.width * 0.24,
+              child: Row(
+                children: [
+                  Text(
+                    "Rp ",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14),
+                  ),
+                  FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      NumberFormat.currency(
+                              locale: 'id', symbol: "", decimalDigits: 0)
+                          .format(num.parse(totalPajak.toString())),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
