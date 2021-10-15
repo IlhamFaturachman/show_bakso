@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Map2.dart';
+
 class Pberhasil extends StatelessWidget {
   const Pberhasil({Key key}) : super(key: key);
 
@@ -27,12 +29,12 @@ class Pberhasil extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //         builder: (context) => Peta2(),
-                        //       ),
-                        //     );
+                        Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Peta2(),
+                              ),
+                            );
                       },
                       child: Padding(
                         padding: EdgeInsets.only(left: size.width * 0.03),

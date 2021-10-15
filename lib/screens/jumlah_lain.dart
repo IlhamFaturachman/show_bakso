@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:show_bakso/widget/confbutton.dart';
 import 'package:intl/intl.dart';
 
-
 class JumlahLain extends StatefulWidget {
   @override
   State<JumlahLain> createState() => _JumlahLainState();
   // ignore: non_constant_identifier_names
+  num total;
 
+  JumlahLain(
+    this.total, {
+    Key key,
+  }) : super(key: key);
 }
 
 class _JumlahLainState extends State<JumlahLain> {
@@ -26,13 +30,12 @@ class _JumlahLainState extends State<JumlahLain> {
         });
       },
       child: Container(
-        width: size.width*0.3,
+        width: size.width * 0.3,
         child: Center(
           child: Text(
             text,
             style: TextStyle(
                 fontSize: 30, fontFamily: 'Poppins', color: Colors.black),
-            
           ),
         ),
       ),
@@ -48,7 +51,6 @@ class _JumlahLainState extends State<JumlahLain> {
         elevation: 0,
         bottomOpacity: 0,
         backgroundColor: Colors.white,
-        leading: Icon(Icons.arrow_back),
         title: Text(
           'Jumlah Lain',
           style: TextStyle(color: Colors.black, fontFamily: 'Poppins'),
@@ -61,7 +63,7 @@ class _JumlahLainState extends State<JumlahLain> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: size.height * 0.3,
+              height: size.height * 0.25,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -83,7 +85,10 @@ class _JumlahLainState extends State<JumlahLain> {
                       horizontal: 20,
                     ),
                     child: Text(
-                        NumberFormat.currency(locale: 'id',symbol: 'Rp.',decimalDigits: 0).format(int.parse(nominal)), maxLines: 3,
+                      NumberFormat.currency(
+                              locale: 'id', symbol: 'Rp.', decimalDigits: 0)
+                          .format(int.parse(nominal)),
+                      maxLines: 3,
                       style: TextStyle(color: Colors.grey, fontSize: 40),
                     ),
                   ),
@@ -91,8 +96,7 @@ class _JumlahLainState extends State<JumlahLain> {
               ),
             ),
             Container(
-             
-              height: size.height*0.5,
+              height: size.height * 0.5,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -121,15 +125,13 @@ class _JumlahLainState extends State<JumlahLain> {
                     ],
                   ),
                   Container(
-            
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         _numButton('0'),
                         _numButton('000'),
                         Container(
-                          width: size.width*0.3,
-                        
+                          width: size.width * 0.3,
                           child: GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -145,7 +147,13 @@ class _JumlahLainState extends State<JumlahLain> {
                 ],
               ),
             ),
-            ConfirmationButton(size: size),
+            Container(
+                child: (() {
+              if (int.parse(nominal) >= widget.total) {
+                print(int.parse(nominal));
+                return ConfirmationButton(size: size);
+              }
+            }()))
           ],
         ),
       ),

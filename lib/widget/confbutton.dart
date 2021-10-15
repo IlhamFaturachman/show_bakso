@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:show_bakso/screens/pembayaran_berhasil.dart';
 
 class ConfirmationButton extends StatefulWidget {
   const ConfirmationButton({
@@ -19,7 +20,14 @@ class _ButtonState extends State<ConfirmationButton> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Pberhasil(),
+            ),
+          );
+        },
         child: Container(
           alignment: Alignment.center,
           height: 41,

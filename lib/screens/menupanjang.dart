@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:show_bakso/model/menuModel.dart';
 import 'package:show_bakso/screens/detailPesananpanjang.dart';
-import 'package:show_bakso/screens/detail_pesanan.dart';
 import 'package:show_bakso/widget/ButtonMenu.dart';
 
 import 'Map2.dart';

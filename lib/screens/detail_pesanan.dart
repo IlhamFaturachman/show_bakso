@@ -356,13 +356,13 @@ class _DetailPesananState extends State<DetailPesanan>
                                         ),
                                         GestureDetector(
                                           onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    JumlahLain(),
-                                              ),
-                                            );
+                                            // Navigator.push(
+                                            //   context,
+                                            //   MaterialPageRoute(
+                                            //     builder: (context) =>
+                                            //         JumlahLain(total),
+                                            //   ),
+                                            // );
                                           },
                                           child: Container(
                                             width: size.width * 0.4,

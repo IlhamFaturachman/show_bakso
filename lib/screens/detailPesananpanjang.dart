@@ -2,11 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:show_bakso/dummy/itemorder.dart';
-import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 import 'package:show_bakso/model/menuModel.dart';
-import 'package:show_bakso/screens/jumlah_lain.dart';
-
-import 'Qr.dart';
+import 'package:show_bakso/template/tabbar.dart';
 
 // ignore: must_be_immutable
 class DetailPesananPanjang extends StatefulWidget {
@@ -23,15 +20,7 @@ class DetailPesananPanjang extends StatefulWidget {
   _DetailPesananPanjangState createState() => _DetailPesananPanjangState();
 }
 
-class _DetailPesananPanjangState extends State<DetailPesananPanjang>
-    with TickerProviderStateMixin {
-  TabController _tabController;
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
-
+class _DetailPesananPanjangState extends State<DetailPesananPanjang> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -189,13 +178,15 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                                                             width: size.width *
                                                                 0.05,
                                                             child: FittedBox(
-                                                              fit: BoxFit.scaleDown,
+                                                              fit: BoxFit
+                                                                  .scaleDown,
                                                               child: Text(
-                                                                widget
-                                                                    .order1.jumlah
+                                                                widget.order1
+                                                                    .jumlah
                                                                     .toString(),
                                                                 style: TextStyle(
-                                                                    fontSize: 20,
+                                                                    fontSize:
+                                                                        20,
                                                                     color: Colors
                                                                         .black),
                                                               ),
@@ -384,14 +375,15 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                                                             width: size.width *
                                                                 0.05,
                                                             child: FittedBox(
-                                                              fit: BoxFit.scaleDown,
+                                                              fit: BoxFit
+                                                                  .scaleDown,
                                                               child: Text(
-                                                                widget
-                                                                    .order2.jumlah
+                                                                widget.order2
+                                                                    .jumlah
                                                                     .toString(),
                                                                 style: TextStyle(
-                                                                  
-                                                                    fontSize: 20,
+                                                                    fontSize:
+                                                                        20,
                                                                     color: Colors
                                                                         .black),
                                                               ),
@@ -580,13 +572,15 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                                                             width: size.width *
                                                                 0.05,
                                                             child: FittedBox(
-                                                              fit: BoxFit.scaleDown,
+                                                              fit: BoxFit
+                                                                  .scaleDown,
                                                               child: Text(
-                                                                widget
-                                                                    .order3.jumlah
+                                                                widget.order3
+                                                                    .jumlah
                                                                     .toString(),
                                                                 style: TextStyle(
-                                                                    fontSize: 20,
+                                                                    fontSize:
+                                                                        20,
                                                                     color: Colors
                                                                         .black),
                                                               ),
@@ -775,13 +769,15 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                                                             width: size.width *
                                                                 0.05,
                                                             child: FittedBox(
-                                                              fit: BoxFit.scaleDown,
+                                                              fit: BoxFit
+                                                                  .scaleDown,
                                                               child: Text(
-                                                                widget
-                                                                    .order4.jumlah
+                                                                widget.order4
+                                                                    .jumlah
                                                                     .toString(),
                                                                 style: TextStyle(
-                                                                    fontSize: 20,
+                                                                    fontSize:
+                                                                        20,
                                                                     color: Colors
                                                                         .black),
                                                               ),
@@ -970,13 +966,15 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                                                             width: size.width *
                                                                 0.05,
                                                             child: FittedBox(
-                                                              fit: BoxFit.scaleDown,
+                                                              fit: BoxFit
+                                                                  .scaleDown,
                                                               child: Text(
-                                                                widget
-                                                                    .order5.jumlah
+                                                                widget.order5
+                                                                    .jumlah
                                                                     .toString(),
                                                                 style: TextStyle(
-                                                                    fontSize: 20,
+                                                                    fontSize:
+                                                                        20,
                                                                     color: Colors
                                                                         .black),
                                                               ),
@@ -1146,244 +1144,10 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang>
                       child: ItemTotal(widget.order1, widget.order2,
                           widget.order3, widget.order4, widget.order5),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: DefaultTabController(
-                          length: 3,
-                          child: TabBar(
-                            controller: _tabController,
-                            labelStyle: TextStyle(fontWeight: FontWeight.w700),
-                            indicatorSize: TabBarIndicatorSize.label,
-                            labelColor: Color(0xFFEA8F06),
-                            indicator: MD2Indicator(
-                              indicatorSize: MD2IndicatorSize.full,
-                              indicatorHeight: 3,
-                              indicatorColor: Color(0xFFEA8F06),
-                            ),
-                            tabs: [
-                              Tab(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                    image: AssetImage(
-                                      "assets/images/gopay.jpg",
-                                    ),
-                                  )),
-                                ),
-                              ),
-                              Tab(
-                                child: Text(
-                                  "Tunai",
-                                  style: TextStyle(
-                                      fontFamily: "poppins",
-                                      fontSize: 17,
-                                      color: Colors.black),
-                                ),
-                              ),
-                              Tab(
-                                child: Text(
-                                  "Lainnya",
-                                  style: TextStyle(
-                                      fontFamily: "poppins",
-                                      fontSize: 17,
-                                      color: Colors.black),
-                                ),
-                              ),
-                            ],
-                          )),
-                    ),
                     Container(
-                      height: 150.0,
-                      child: new TabBarView(
-                        controller: _tabController,
-                        children: <Widget>[
-                          Container(
-                              padding:
-                                  EdgeInsets.only(top: 20, left: 10, right: 10),
-                              child: Column(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => QRScreen(),
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      height: 41,
-                                      width: size.width * 0.9,
-                                      decoration: BoxDecoration(
-                                          color: Color(0xFFEA8F06),
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          boxShadow: [
-                                            BoxShadow(
-                                                blurRadius: 10,
-                                                spreadRadius: 7,
-                                                color: Colors.grey
-                                                    .withOpacity(0.3))
-                                          ]),
-                                      child: Center(
-                                        child: Text(
-                                          "Tunjukkan kode QR",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 41,
-                                    width: size.width * 0.9,
-                                    margin: EdgeInsetsDirectional.only(top: 20),
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFEA8F06),
-                                        borderRadius: BorderRadius.circular(10),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              blurRadius: 10,
-                                              spreadRadius: 7,
-                                              color:
-                                                  Colors.grey.withOpacity(0.3))
-                                        ]),
-                                    child: Center(
-                                      child: Text(
-                                        "Tagih Rp 135.000",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            color: Colors.white),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width: size.width * 0.4,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 20),
-                                            child: Center(
-                                              child: Text(
-                                                "Rp 50.000",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: size.width * 0.4,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 20),
-                                            child: Center(
-                                              child: Text(
-                                                "Rp 100.000",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.only(top: 30),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width: size.width * 0.4,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 25),
-                                            child: Center(
-                                              child: Text(
-                                                "Uang pas",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    JumlahLain(),
-                                              ),
-                                            );
-                                          },
-                                          child: Container(
-                                            width: size.width * 0.4,
-                                            decoration: BoxDecoration(
-                                              color: Colors.grey,
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 10,
-                                                      horizontal: 20),
-                                              child: Center(
-                                                child: Text(
-                                                  "Jumlah lain",
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Text("Kosong")
-                        ],
-                      ),
-                    ),
+                      child: Payment(widget.order1, widget.order2,
+                          widget.order3, widget.order4, widget.order5),
+                    )
                   ],
                 ),
               ),
