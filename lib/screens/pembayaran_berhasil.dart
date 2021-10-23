@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'Map2.dart';
 
+// ignore: must_be_immutable
 class Pberhasil extends StatelessWidget {
-  const Pberhasil({Key key}) : super(key: key);
-
+  Pberhasil(this.total, {Key key}) : super(key: key);
+  num total;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -30,11 +32,11 @@ class Pberhasil extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Peta2(),
-                              ),
-                            );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Peta2(),
+                          ),
+                        );
                       },
                       child: Padding(
                         padding: EdgeInsets.only(left: size.width * 0.03),
@@ -95,7 +97,12 @@ class Pberhasil extends StatelessWidget {
                     child: Container(
                       width: size.width * 0.9,
                       child: Text(
-                        "Rp 148.000 telah terbayarkan oleh pembeli. Cek struk untuk rincian riwayat ",
+                        NumberFormat.currency(
+                                    locale: 'id',
+                                    symbol: 'Rp ',
+                                    decimalDigits: 0)
+                                .format(num.parse(total.toString())) +
+                            " telah terbayarkan oleh pembeli. Cek struk untuk rincian riwayat ",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Poppins',

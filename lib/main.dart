@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'SHOW BAKSO!',
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
+      
     );
   }
 }

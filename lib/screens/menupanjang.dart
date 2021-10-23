@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:show_bakso/model/menuModel.dart';
 import 'package:show_bakso/screens/detailPesananpanjang.dart';
 import 'package:show_bakso/widget/ButtonMenu.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'Map2.dart';
 
@@ -12,37 +13,37 @@ class Menupanjang extends StatefulWidget {
   _MenupanjangState createState() => _MenupanjangState();
 }
 
+Bakso menu1 = Bakso(
+    jumlah: 0,
+    name: "Paket Bakso 1",
+    image: "assets/images/baksolast.png",
+    harga: 16000);
+
+Bakso menu2 = Bakso(
+    jumlah: 0,
+    name: "Paket Bakso 2",
+    image: "assets/images/baksolast.png",
+    harga: 15000);
+
+Bakso menu3 = Bakso(
+    jumlah: 0,
+    name: "Paket Bakso 3",
+    image: "assets/images/baksolast.png",
+    harga: 16000);
+
+Bakso menu4 = Bakso(
+    jumlah: 0,
+    name: "Paket Bakso 4",
+    image: "assets/images/baksolast.png",
+    harga: 16000);
+
+Bakso menu5 = Bakso(
+    jumlah: 0,
+    name: "Paket Bakso 5",
+    image: "assets/images/baksolast.png",
+    harga: 16000);
+
 class _MenupanjangState extends State<Menupanjang> {
-  Bakso menu1 = Bakso(
-      jumlah: 0,
-      name: "Paket Bakso 1",
-      image: "assets/images/baksolast.png",
-      harga: 16000);
-
-  Bakso menu2 = Bakso(
-      jumlah: 0,
-      name: "Paket Bakso 2",
-      image: "assets/images/baksolast.png",
-      harga: 15000);
-
-  Bakso menu3 = Bakso(
-      jumlah: 0,
-      name: "Paket Bakso 3",
-      image: "assets/images/baksolast.png",
-      harga: 16000);
-
-  Bakso menu4 = Bakso(
-      jumlah: 0,
-      name: "Paket Bakso 4",
-      image: "assets/images/baksolast.png",
-      harga: 16000);
-
-  Bakso menu5 = Bakso(
-      jumlah: 0,
-      name: "Paket Bakso 5",
-      image: "assets/images/baksolast.png",
-      harga: 16000);
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -271,166 +272,179 @@ class _MenupanjangState extends State<Menupanjang> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: size.width * 0.52,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 7,
-                                        blurRadius: 7,
-                                        offset: Offset(0, 3),
-                                      )
-                                    ],
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 5,
-                                          left: 5,
-                                          bottom: 5,
-                                        ),
-                                        child: Container(
-                                          width: 69,
-                                          height: 53,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(menu1.image),
-                                                fit: BoxFit.fill),
+                          GestureDetector(
+                            onTap: () async {
+                              await _bottomSheet1(
+                                context,
+                              );
+                            },
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: size.width * 0.52,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.2),
+                                          spreadRadius: 7,
+                                          blurRadius: 7,
+                                          offset: Offset(0, 3),
+                                        )
+                                      ],
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 5,
+                                            left: 5,
+                                            bottom: 5,
+                                          ),
+                                          child: Container(
+                                            width: 69,
+                                            height: 53,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image:
+                                                      AssetImage(menu1.image),
+                                                  fit: BoxFit.fill),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 0, left: 10),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                menu1.name,
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                    decoration:
-                                                        TextDecoration.none),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 5),
-                                              child: Container(
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 0, left: 10),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
                                                 child: Text(
-                                                  NumberFormat.currency(
-                                                          locale: 'id',
-                                                          symbol: 'Rp ',
-                                                          decimalDigits: 0)
-                                                      .format(num.parse(menu1
-                                                          .harga
-                                                          .toString())),
+                                                  menu1.name,
                                                   style: TextStyle(
-                                                      fontSize: 18,
-                                                      color: Colors.grey,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black,
                                                       decoration:
                                                           TextDecoration.none),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    //bapak
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: size.width * 0.05),
-                                    child: Container(
-                                      width: 42,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          width: 3,
-                                          color: const Color(0xffEA8F06),
-                                        ),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Center(
-                                        child: GestureDetector(
-                                          child: Icon(
-                                            CupertinoIcons.minus,
-                                            color: Colors.black,
-                                            size: 30,
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 5),
+                                                child: Container(
+                                                  child: Text(
+                                                    NumberFormat.currency(
+                                                            locale: 'id',
+                                                            symbol: 'Rp ',
+                                                            decimalDigits: 0)
+                                                        .format(num.parse(menu1
+                                                            .harga
+                                                            .toString())),
+                                                    style: TextStyle(
+                                                        fontSize: 18,
+                                                        color: Colors.grey,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .none),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          onTap: () {
-                                            setState(() {
-                                              if (menu1.jumlah > 0) {
-                                                menu1.jumlah--;
-                                              }
-                                            });
-                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      //bapak
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: size.width * 0.05),
+                                      child: Container(
+                                        width: 42,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 3,
+                                            color: const Color(0xffEA8F06),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Center(
+                                          child: GestureDetector(
+                                            child: Icon(
+                                              CupertinoIcons.minus,
+                                              color: Colors.black,
+                                              size: 30,
+                                            ),
+                                            onTap: () {
+                                              setState(() {
+                                                if (menu1.jumlah > 0) {
+                                                  menu1.jumlah--;
+                                                }
+                                              });
+                                            },
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(left: size.width * 0.03),
-                                  child: Container(
-                                    width: size.width * 0.05,
-                                    child: FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: Text(
-                                        menu1.jumlah.toString(),
-                                        style: TextStyle(
-                                            fontSize: 20, color: Colors.black),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      menu1.jumlah++;
-                                    });
-                                  },
-                                  child: Padding(
+                                  Padding(
                                     padding: EdgeInsets.only(
                                         left: size.width * 0.03),
                                     child: Container(
-                                      width: 42,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          width: 3,
-                                          color: const Color(0xffEA8F06),
-                                        ),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Center(
-                                        child: Icon(
-                                          CupertinoIcons.add,
-                                          color: Colors.black,
-                                          size: 30,
+                                      width: size.width * 0.05,
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          menu1.jumlah.toString(),
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.black),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        menu1.jumlah++;
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: size.width * 0.03),
+                                      child: Container(
+                                        width: 42,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 3,
+                                            color: const Color(0xffEA8F06),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Center(
+                                          child: Icon(
+                                            CupertinoIcons.add,
+                                            color: Colors.black,
+                                            size: 30,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -445,166 +459,173 @@ class _MenupanjangState extends State<Menupanjang> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: size.width * 0.52,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 7,
-                                        blurRadius: 7,
-                                        offset: Offset(0, 3),
-                                      )
-                                    ],
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          top: 5,
-                                          left: 5,
-                                          bottom: 5,
-                                        ),
-                                        child: Container(
-                                          width: 69,
-                                          height: 53,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(menu2.image),
-                                                fit: BoxFit.fill),
+                          GestureDetector(
+                            onTap: () async {
+                              await _bottomSheet2(
+                                context,
+                              );
+                            },
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: size.width * 0.52,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.2),
+                                          spreadRadius: 7,
+                                          blurRadius: 7,
+                                          offset: Offset(0, 3),
+                                        )
+                                      ],
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 5,
+                                            left: 5,
+                                            bottom: 5,
+                                          ),
+                                          child: Container(
+                                            width: 69,
+                                            height: 53,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: AssetImage(menu2.image),
+                                                  fit: BoxFit.fill),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 0, left: 10),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              child: Text(
-                                                menu2.name,
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                    decoration:
-                                                        TextDecoration.none),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 5),
-                                              child: Container(
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 0, left: 10),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
                                                 child: Text(
-                                                  NumberFormat.currency(
-                                                          locale: 'id',
-                                                          symbol: 'Rp ',
-                                                          decimalDigits: 0)
-                                                      .format(num.parse(menu2
-                                                          .harga
-                                                          .toString())),
+                                                  menu2.name,
                                                   style: TextStyle(
-                                                      fontSize: 18,
-                                                      color: Colors.grey,
+                                                      fontSize: 12,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.black,
                                                       decoration:
                                                           TextDecoration.none),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.only(top: 5),
+                                                child: Container(
+                                                  child: Text(
+                                                    NumberFormat.currency(
+                                                            locale: 'id',
+                                                            symbol: 'Rp ',
+                                                            decimalDigits: 0)
+                                                        .format(num.parse(menu2
+                                                            .harga
+                                                            .toString())),
+                                                    style: TextStyle(
+                                                        fontSize: 18,
+                                                        color: Colors.grey,
+                                                        decoration:
+                                                            TextDecoration.none),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    //bapak
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: size.width * 0.05),
-                                    child: Container(
-                                      width: 42,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          width: 3,
-                                          color: const Color(0xffEA8F06),
+                                  GestureDetector(
+                                    onTap: () {
+                                      //bapak
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: size.width * 0.05),
+                                      child: Container(
+                                        width: 42,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 3,
+                                            color: const Color(0xffEA8F06),
+                                          ),
+                                          borderRadius: BorderRadius.circular(20),
                                         ),
-                                        borderRadius: BorderRadius.circular(20),
+                                        child: Center(
+                                          child: GestureDetector(
+                                            child: Icon(
+                                              CupertinoIcons.minus,
+                                              color: Colors.black,
+                                              size: 30,
+                                            ),
+                                            onTap: () {
+                                              setState(() {
+                                                if (menu2.jumlah > 0) {
+                                                  menu2.jumlah--;
+                                                }
+                                              });
+                                            },
+                                          ),
+                                        ),
                                       ),
-                                      child: Center(
-                                        child: GestureDetector(
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(left: size.width * 0.03),
+                                    child: Container(
+                                      width: size.width * 0.05,
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(
+                                          menu2.jumlah.toString(),
+                                          style: TextStyle(
+                                              fontSize: 20, color: Colors.black),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        menu2.jumlah++;
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: size.width * 0.03),
+                                      child: Container(
+                                        width: 42,
+                                        height: 42,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 3,
+                                            color: const Color(0xffEA8F06),
+                                          ),
+                                          borderRadius: BorderRadius.circular(20),
+                                        ),
+                                        child: Center(
                                           child: Icon(
-                                            CupertinoIcons.minus,
+                                            CupertinoIcons.add,
                                             color: Colors.black,
                                             size: 30,
                                           ),
-                                          onTap: () {
-                                            setState(() {
-                                              if (menu2.jumlah > 0) {
-                                                menu2.jumlah--;
-                                              }
-                                            });
-                                          },
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(left: size.width * 0.03),
-                                  child: Container(
-                                    width: size.width * 0.05,
-                                    child: FittedBox(
-                                      fit: BoxFit.scaleDown,
-                                      child: Text(
-                                        menu2.jumlah.toString(),
-                                        style: TextStyle(
-                                            fontSize: 20, color: Colors.black),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      menu2.jumlah++;
-                                    });
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: size.width * 0.03),
-                                    child: Container(
-                                      width: 42,
-                                      height: 42,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          width: 3,
-                                          color: const Color(0xffEA8F06),
-                                        ),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: Center(
-                                        child: Icon(
-                                          CupertinoIcons.add,
-                                          color: Colors.black,
-                                          size: 30,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -1149,8 +1170,8 @@ class _MenupanjangState extends State<Menupanjang> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            DetailPesananPanjang(menu1, menu2, menu3, menu4, menu5),
+                        builder: (context) => DetailPesananPanjang(
+                            menu1, menu2, menu3, menu4, menu5),
                       ),
                     );
                   },
@@ -1159,6 +1180,229 @@ class _MenupanjangState extends State<Menupanjang> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+_bottomSheet1(context) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return BottomSheet1(menu1);
+    },
+  );
+}
+
+// ignore: must_be_immutable
+class BottomSheet1 extends StatelessWidget {
+  Bakso bakso;
+  BottomSheet1(
+    this.bakso, {
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 500,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+      child: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  width: 392.4,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/bakso1.jpg'),
+                          fit: BoxFit.fill)),
+                ),
+                Center(
+                  child: Container(
+                    height: 300,
+                    width: 392.4,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  menu1.name,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  //   TextStyle(
+                                  //       color: Colors.lightBlue,
+                                  //       fontFamily: 'Poppins',
+                                  //       fontSize: 22,
+                                  //       fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Pentol halus + Pentol Kasar + Tahu + Mie putih',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.black45,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  NumberFormat.currency(
+                                          locale: 'id',
+                                          symbol: 'Rp ',
+                                          decimalDigits: 0)
+                                      .format(
+                                          num.parse(menu1.harga.toString())),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+_bottomSheet2(context) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return BottomSheet2(menu2);
+    },
+  );
+}
+
+// ignore: must_be_immutable
+class BottomSheet2 extends StatelessWidget {
+  Bakso bakso;
+  BottomSheet2(
+    this.bakso, {
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 500,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+      child: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  width: 392.4,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/bakso1.jpg'),
+                          fit: BoxFit.fill)),
+                ),
+                Center(
+                  child: Container(
+                    height: 300,
+                    width: 392.4,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  menu2.name,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  //   TextStyle(
+                                  //       color: Colors.lightBlue,
+                                  //       fontFamily: 'Poppins',
+                                  //       fontSize: 22,
+                                  //       fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Pentol halus + Pentol Kasar + Tahu + Mie putih',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.black45,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  NumberFormat.currency(
+                                          locale: 'id',
+                                          symbol: 'Rp ',
+                                          decimalDigits: 0)
+                                      .format(
+                                          num.parse(menu2.harga.toString())),
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

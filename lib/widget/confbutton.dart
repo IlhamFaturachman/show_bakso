@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:show_bakso/screens/pembayaran_berhasil.dart';
 
+// ignore: must_be_immutable
 class ConfirmationButton extends StatefulWidget {
-  const ConfirmationButton({
+   ConfirmationButton({
     Key key,
-    @required this.size,
+    @required this.size,  this.total,
   }) : super(key: key);
 
   final Size size;
+  num total;
 
   @override
   State<ConfirmationButton> createState() => _ButtonState();
@@ -24,7 +26,7 @@ class _ButtonState extends State<ConfirmationButton> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Pberhasil(),
+              builder: (context) => Pberhasil(widget.total),
             ),
           );
         },

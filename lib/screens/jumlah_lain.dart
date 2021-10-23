@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:show_bakso/widget/confbutton.dart';
 import 'package:intl/intl.dart';
 
+// ignore: must_be_immutable
 class JumlahLain extends StatefulWidget {
   @override
   State<JumlahLain> createState() => _JumlahLainState();
@@ -151,7 +152,7 @@ class _JumlahLainState extends State<JumlahLain> {
                 child: (() {
               if (int.parse(nominal) >= widget.total) {
                 print(int.parse(nominal));
-                return ConfirmationButton(size: size);
+                return ConfirmationButton(size: size, total: widget.total);
               }
             }()))
           ],

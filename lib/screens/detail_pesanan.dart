@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:show_bakso/dummy/itemorder.dart';
 import 'package:md2_tab_indicator/md2_tab_indicator.dart';
 import 'package:show_bakso/model/menuModel.dart';
-import 'package:show_bakso/screens/jumlah_lain.dart';
 
 import 'Qr.dart';
 

@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:show_bakso/dummy/itemorder.dart';
 import 'package:show_bakso/model/menuModel.dart';
 import 'package:show_bakso/template/tabbar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class DetailPesananPanjang extends StatefulWidget {
@@ -64,148 +67,74 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang> {
                     Container(
                       child: Column(
                         children: [
-                          Container(child: (() {
-                            if (widget.order1.jumlah > 0) {
-                              return Container(
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: size.width * 0.03, top: 20),
-                                      child: Container(
-                                        height: 100,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Container(
-                                              width: size.width * 0.28,
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.only(top: 3),
-                                                    child: FittedBox(
-                                                      fit: BoxFit.scaleDown,
+                          GestureDetector(
+                            onTap: () async {
+                              await _bottomSheet(context , );
+                            },
+                            child: Container(child: (() {
+                              if (widget.order1.jumlah > 0) {
+                                return Container(
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: size.width * 0.03, top: 20),
+                                        child: Container(
+                                          height: 100,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width: size.width * 0.28,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 3),
+                                                      child: FittedBox(
+                                                        fit: BoxFit.scaleDown,
+                                                        child: Text(
+                                                          widget.order1.name,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontFamily:
+                                                                  'Poppins'),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 3),
                                                       child: Text(
-                                                        widget.order1.name,
+                                                        NumberFormat.currency(
+                                                                locale: 'id',
+                                                                symbol: 'Rp ',
+                                                                decimalDigits:
+                                                                    0)
+                                                            .format(int.parse(
+                                                                widget.order1
+                                                                    .harga
+                                                                    .toString())),
                                                         style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
                                                             fontFamily:
                                                                 'Poppins'),
                                                       ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.only(top: 3),
-                                                    child: Text(
-                                                      NumberFormat.currency(
-                                                              locale: 'id',
-                                                              symbol: 'Rp ',
-                                                              decimalDigits: 0)
-                                                          .format(int.parse(
-                                                              widget
-                                                                  .order1.harga
-                                                                  .toString())),
-                                                      style: TextStyle(
-                                                          fontFamily:
-                                                              'Poppins'),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 3),
-                                                    child: Row(
-                                                      children: [
-                                                        GestureDetector(
-                                                          onTap: () {
-                                                            //bapak
-                                                          },
-                                                          child: Container(
-                                                            width: 25,
-                                                            height: 25,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              border:
-                                                                  Border.all(
-                                                                width: 3,
-                                                                color: const Color(
-                                                                    0xffEA8F06),
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20),
-                                                            ),
-                                                            child: Center(
-                                                              child:
-                                                                  GestureDetector(
-                                                                child: Icon(
-                                                                  CupertinoIcons
-                                                                      .minus,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 12,
-                                                                ),
-                                                                onTap: () {
-                                                                  setState(() {
-                                                                    if (widget
-                                                                            .order1
-                                                                            .jumlah >
-                                                                        0) {
-                                                                      widget
-                                                                          .order1
-                                                                          .jumlah--;
-                                                                    }
-                                                                  });
-                                                                },
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  left:
-                                                                      size.width *
-                                                                          0.03),
-                                                          child: Container(
-                                                            width: size.width *
-                                                                0.05,
-                                                            child: FittedBox(
-                                                              fit: BoxFit
-                                                                  .scaleDown,
-                                                              child: Text(
-                                                                widget.order1
-                                                                    .jumlah
-                                                                    .toString(),
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        20,
-                                                                    color: Colors
-                                                                        .black),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        GestureDetector(
-                                                          onTap: () {
-                                                            setState(() {
-                                                              widget.order1
-                                                                  .jumlah++;
-                                                            });
-                                                          },
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: size
-                                                                            .width *
-                                                                        0.03),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 3),
+                                                      child: Row(
+                                                        children: [
+                                                          GestureDetector(
+                                                            onTap: () {
+                                                              //bapak
+                                                            },
                                                             child: Container(
                                                               width: 25,
                                                               height: 25,
@@ -223,47 +152,130 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang> {
                                                                             20),
                                                               ),
                                                               child: Center(
-                                                                child: Icon(
-                                                                  CupertinoIcons
-                                                                      .add,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 12,
+                                                                child:
+                                                                    GestureDetector(
+                                                                  child: Icon(
+                                                                    CupertinoIcons
+                                                                        .minus,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 12,
+                                                                  ),
+                                                                  onTap: () {
+                                                                    setState(
+                                                                        () {
+                                                                      if (widget
+                                                                              .order1
+                                                                              .jumlah >
+                                                                          0) {
+                                                                        widget
+                                                                            .order1
+                                                                            .jumlah--;
+                                                                      }
+                                                                    });
+                                                                  },
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  )
-                                                ],
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: size
+                                                                            .width *
+                                                                        0.03),
+                                                            child: Container(
+                                                              width:
+                                                                  size.width *
+                                                                      0.05,
+                                                              child: FittedBox(
+                                                                fit: BoxFit
+                                                                    .scaleDown,
+                                                                child: Text(
+                                                                  widget.order1
+                                                                      .jumlah
+                                                                      .toString(),
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          20,
+                                                                      color: Colors
+                                                                          .black),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          GestureDetector(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                widget.order1
+                                                                    .jumlah++;
+                                                              });
+                                                            },
+                                                            child: Padding(
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      left: size
+                                                                              .width *
+                                                                          0.03),
+                                                              child: Container(
+                                                                width: 25,
+                                                                height: 25,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  border: Border
+                                                                      .all(
+                                                                    width: 3,
+                                                                    color: const Color(
+                                                                        0xffEA8F06),
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                                child: Center(
+                                                                  child: Icon(
+                                                                    CupertinoIcons
+                                                                        .add,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 12,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: size.width * 0.3, top: 10),
-                                      child: Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    widget.order1.image),
-                                                fit: BoxFit.cover),
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: size.width * 0.3, top: 10),
+                                        child: Container(
+                                          width: 100,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      widget.order1.image),
+                                                  fit: BoxFit.cover),
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }
-                          })()),
+                                    ],
+                                  ),
+                                );
+                              }
+                            })()),
+                          ),
                           Container(child: (() {
                             if (widget.order2.jumlah > 0) {
                               return Container(
@@ -1153,6 +1165,110 @@ class _DetailPesananPanjangState extends State<DetailPesananPanjang> {
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+  
+}
+
+_bottomSheet(context) {
+  showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return BottomSheet();
+    },
+  );
+}
+
+class BottomSheet extends StatelessWidget {
+  const BottomSheet({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 500,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+      child: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  width: 392.4,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30)),
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/bakso1.jpg'),
+                          fit: BoxFit.fill)),
+                ),
+                Center(
+                  child: Container(
+                    height: 300,
+                    width: 392.4,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Paket Bakso 1',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  //   TextStyle(
+                                  //       color: Colors.lightBlue,
+                                  //       fontFamily: 'Poppins',
+                                  //       fontSize: 22,
+                                  //       fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Pentol halus + Pentol Kasar + Tahu + Mie putih',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.black45,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Rp. 30.000',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

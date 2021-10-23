@@ -1,12 +1,21 @@
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:here_sdk/core.dart';
 import 'package:here_sdk/mapview.dart';
+import 'package:show_bakso/API/PostLocation.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/screens/home.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 import 'package:geolocator/geolocator.dart';
 
+class Driver {
+  double latitude, longitude;
+
+  Driver({this.latitude, this.longitude});
+}
 
 class Peta extends StatefulWidget {
   @override
@@ -208,12 +217,56 @@ class _PetaState extends State<Peta> {
     hereMapController.mapScene.addMapPolygon(_buatMapCircle2());
     hereMapController.mapScene.addMapPolygon(_lastMapCircle());
 
-    double distance = 2000;
+    double distance = 500;
     Position position = await Geolocator.getCurrentPosition();
+
+    // double latitude = position.latitude;
+    // double longitude = position.longitude;
+
+    // defines a timer
+    Driver driver1 =
+        Driver(latitude: position.latitude, longitude: position.longitude);
+
     hereMapController.camera.lookAtPointWithDistance(
         GeoCoordinates(position.latitude, position.longitude), distance);
+
+    // ignore: unused_element
+    Future<PostLocation> postLoc(double latitude, double longitude) async {
+      final response = await http.post(
+        Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, double>{
+          'latitude': position.latitude,
+          'longitude': position.longitude,
+        }),
+      );
+
+      if (response.statusCode == 201) {
+        // If the server did return a 201 CREATED response,
+        // then parse the JSON.
+        return PostLocation.fromJson(jsonDecode(response.body));
+      } else {
+        // If the server did not return a 201 CREATED response,
+        // then throw an exception.
+        throw Exception('Failed to create album.');
+      }
+    }
+
+    Timer.periodic(Duration(seconds: 3), (Timer t) {
+      setState(() async {
+        Position _nowposition = await Geolocator.getCurrentPosition();
+        driver1.latitude = _nowposition.latitude;
+        driver1.longitude = _nowposition.longitude;
+        print("latitude : " + driver1.latitude.toString());
+        print("longitude : " + driver1.longitude.toString());
+        print(position.longitude);
+      });
+    });
+
     hereMapController.pinWidget(
-        _createWidget(), GeoCoordinates(position.latitude, position.longitude));
+        _createWidget(), GeoCoordinates(driver1.latitude, driver1.longitude));
   }
 
   MapPolygon _createMapCircle() {
