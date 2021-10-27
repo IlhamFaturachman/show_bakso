@@ -177,16 +177,6 @@ class _PetaState extends State<Peta> {
       ),
     );
   }
-
-// _getCurrentLocation() {
-//     Geolocator
-//       .getCurrentPosition(desiredAccuracy: LocationAccuracy.best, forceAndroidLocationManager: true)
-//       .then((Position position) {
-//           return _currentposition = position;
-//       }).catchError((e) {
-//         print(e);
-//       });
-//   }
   Widget _createWidget() {
     return Container(
       width: 40,
@@ -229,30 +219,6 @@ class _PetaState extends State<Peta> {
 
     hereMapController.camera.lookAtPointWithDistance(
         GeoCoordinates(position.latitude, position.longitude), distance);
-
-    // ignore: unused_element
-    Future<PostLocation> postLoc(double latitude, double longitude) async {
-      final response = await http.post(
-        Uri.parse('https://jsonplaceholder.typicode.com/albums'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(<String, double>{
-          'latitude': position.latitude,
-          'longitude': position.longitude,
-        }),
-      );
-
-      if (response.statusCode == 201) {
-        // If the server did return a 201 CREATED response,
-        // then parse the JSON.
-        return PostLocation.fromJson(jsonDecode(response.body));
-      } else {
-        // If the server did not return a 201 CREATED response,
-        // then throw an exception.
-        throw Exception('Failed to create album.');
-      }
-    }
 
     Timer.periodic(Duration(seconds: 3), (Timer t) {
       setState(() async {

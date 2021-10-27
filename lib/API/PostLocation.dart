@@ -1,53 +1,77 @@
 // To parse this JSON data, do
 //
-//     final postLocation = postLocationFromJson(jsonString);
+//     final postLoc = postLocFromJson(jsonString);
 
 import 'dart:convert';
 
-PostLocation postLocationFromJson(String str) => PostLocation.fromJson(json.decode(str));
+PostLoc postLocFromJson(String str) => PostLoc.fromJson(json.decode(str));
 
-String postLocationToJson(PostLocation data) => json.encode(data.toJson());
+String postLocToJson(PostLoc data) => json.encode(data.toJson());
 
-class PostLocation {
-    PostLocation({
+class PostLoc {
+    PostLoc({
         this.status,
-        this.values,
+        this.error,
+        this.response,
     });
 
     int status;
-    List<Value> values;
+    dynamic error;
+    Response response;
 
-    factory PostLocation.fromJson(Map<String, dynamic> json) => PostLocation(
+    factory PostLoc.fromJson(Map<String, dynamic> json) => PostLoc(
         status: json["status"],
-        values: List<Value>.from(json["values"].map((x) => Value.fromJson(x))),
+        error: json["error"],
+        response: Response.fromJson(json["response"]),
     );
 
     Map<String, dynamic> toJson() => {
         "status": status,
-        "values": List<dynamic>.from(values.map((x) => x.toJson())),
+        "error": error,
+        "response": response.toJson(),
     };
 }
 
-class Value {
-    Value({
-        this.driver,
-        this.latitude,
-        this.longitude,
+class Response {
+    Response({
+        this.fieldCount,
+        this.affectedRows,
+        this.insertId,
+        this.serverStatus,
+        this.warningCount,
+        this.message,
+        this.protocol41,
+        this.changedRows,
     });
 
-    int driver;
-    double latitude;
-    double longitude;
+    int fieldCount;
+    int affectedRows;
+    int insertId;
+    int serverStatus;
+    int warningCount;
+    String message;
+    bool protocol41;
+    int changedRows;
 
-    factory Value.fromJson(Map<String, dynamic> json) => Value(
-        driver: json["driver"],
-        latitude: json["latitude"].toDouble(),
-        longitude: json["longitude"].toDouble(),
+    factory Response.fromJson(Map<String, dynamic> json) => Response(
+        fieldCount: json["fieldCount"],
+        affectedRows: json["affectedRows"],
+        insertId: json["insertId"],
+        serverStatus: json["serverStatus"],
+        warningCount: json["warningCount"],
+        message: json["message"],
+        protocol41: json["protocol41"],
+        changedRows: json["changedRows"],
     );
 
     Map<String, dynamic> toJson() => {
-        "driver": driver,
-        "latitude": latitude,
-        "longitude": longitude,
+        "fieldCount": fieldCount,
+        "affectedRows": affectedRows,
+        "insertId": insertId,
+        "serverStatus": serverStatus,
+        "warningCount": warningCount,
+        "message": message,
+        "protocol41": protocol41,
+        "changedRows": changedRows,
     };
 }

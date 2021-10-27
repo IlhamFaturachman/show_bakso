@@ -1,11 +1,40 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:show_bakso/API/PostLocation.dart';
 import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
+}
+
+Future<PostLoc> postLoc() async {
+  Position position = await Geolocator.getCurrentPosition();
+  final response = await http.post(
+    Uri.parse('https://liveshow.utter.academy/locations/insert'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, double>{
+      'latitude': position.latitude,
+      'longitude': position.longitude,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    return PostLoc.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed');
+  }
 }
 
 class _HomeState extends State<Home> {
@@ -301,6 +330,7 @@ class _HomeState extends State<Home> {
                   height: size.height * 0.34,
                   child: GestureDetector(
                     onTap: () {
+                      postLoc();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -459,7 +489,7 @@ class _HomeState extends State<Home> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.only(top : 5),
+                                        padding: EdgeInsets.only(top: 5),
                                         child: Container(
                                           child: Text(
                                             "call center",
