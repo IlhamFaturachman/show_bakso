@@ -13,30 +13,6 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-Future<PostLoc> postLoc() async {
-  Position position = await Geolocator.getCurrentPosition();
-  final response = await http.post(
-    Uri.parse('https://liveshow.utter.academy/locations/insert'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode(<String, double>{
-      'latitude': position.latitude,
-      'longitude': position.longitude,
-    }),
-  );
-
-  if (response.statusCode == 200) {
-    // If the server did return a 201 CREATED response,
-    // then parse the JSON.
-    return PostLoc.fromJson(jsonDecode(response.body));
-  } else {
-    // If the server did not return a 201 CREATED response,
-    // then throw an exception.
-    throw Exception('Failed');
-  }
-}
-
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
@@ -330,7 +306,6 @@ class _HomeState extends State<Home> {
                   height: size.height * 0.34,
                   child: GestureDetector(
                     onTap: () {
-                      postLoc();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
