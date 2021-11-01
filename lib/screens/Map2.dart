@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:here_sdk/core.dart';
-import 'package:here_sdk/mapview.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:geolocator/geolocator.dart';
+// import 'package:here_sdk/core.dart';
+// import 'package:here_sdk/mapview.dart';
 import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/menupanjang.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
@@ -14,6 +15,32 @@ class Peta2 extends StatefulWidget {
 }
 
 class _Peta2State extends State<Peta2> {
+  Set<Marker> _markers = {};
+  BitmapDescriptor mapMarker;
+  void setCustomMarker() async {
+    mapMarker = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(), 'assets/images/pinBakso.png');
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setCustomMarker();
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    setState(() {
+      _markers.add(
+        Marker(
+          markerId: MarkerId('id-1'),
+          icon: mapMarker,
+          position: LatLng(-7.977062189410172, 112.63404802916423),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -21,9 +48,19 @@ class _Peta2State extends State<Peta2> {
       body: Container(
         child: Stack(
           children: [
-            HereMap(
-              onMapCreated: onMapCreated,
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              markers: _markers,
+              mapType: MapType.terrain,
+              zoomControlsEnabled: false,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(-7.977062189410172, 112.63404802916423),
+                zoom: 15,
+              ),
             ),
+            //  HereMap (
+            //     onMapCreated: onMapCreated,
+            //   ),
             Padding(
               padding: EdgeInsets.only(
                   left: size.width * 0.18, top: size.height * 0.1),
@@ -247,103 +284,103 @@ class _Peta2State extends State<Peta2> {
     );
   }
 
-Widget _createWidget() {
-    return Container(
-      width: 40,
-      height: 40,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/pinBakso.png"),
-        ),
-      ),
-    );
-  }
+// Widget _createWidget() {
+//     return Container(
+//       width: 40,
+//       height: 40,
+//       padding: EdgeInsets.all(10),
+//       decoration: BoxDecoration(
+//         image: DecorationImage(
+//           image: AssetImage("assets/images/pinBakso.png"),
+//         ),
+//       ),
+//     );
+//   }
 
-  void onMapCreated(HereMapController hereMapController) async {
-    hereMapController.mapScene.loadSceneForMapScheme(
-      MapScheme.normalDay,
-      (error) {
-        if (error != null) {
-          print("Error" + error.toString());
-          return;
-        }
-      },
-    );
+//   void onMapCreated(HereMapController hereMapController) async {
+//     hereMapController.mapScene.loadSceneForMapScheme(
+//       MapScheme.normalDay,
+//       (error) {
+//         if (error != null) {
+//           print("Error" + error.toString());
+//           return;
+//         }
+//       },
+//     );
 
-    hereMapController.mapScene.addMapPolygon(_createMapCircle());
-    hereMapController.mapScene.addMapPolygon(_buatMapCircle());
-    hereMapController.mapScene.addMapPolygon(_createMapCircle2());
-    hereMapController.mapScene.addMapPolygon(_buatMapCircle2());
-    hereMapController.mapScene.addMapPolygon(_lastMapCircle());
+//     hereMapController.mapScene.addMapPolygon(_createMapCircle());
+//     hereMapController.mapScene.addMapPolygon(_buatMapCircle());
+//     hereMapController.mapScene.addMapPolygon(_createMapCircle2());
+//     hereMapController.mapScene.addMapPolygon(_buatMapCircle2());
+//     hereMapController.mapScene.addMapPolygon(_lastMapCircle());
 
-    double distance = 2000;
-    Position position = await Geolocator.getCurrentPosition();
-    hereMapController.camera.lookAtPointWithDistance(
-        GeoCoordinates(position.latitude, position.longitude), distance);
-    hereMapController.pinWidget(
-        _createWidget(), GeoCoordinates(position.latitude, position.longitude));
-  }
+//     double distance = 2000;
+//     Position position = await Geolocator.getCurrentPosition();
+//     hereMapController.camera.lookAtPointWithDistance(
+//         GeoCoordinates(position.latitude, position.longitude), distance);
+//     hereMapController.pinWidget(
+//         _createWidget(), GeoCoordinates(position.latitude, position.longitude));
+//   }
 
-  MapPolygon _createMapCircle() {
-    double radiusInMeters = 500;
-    GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9829137, 112.6259241), radiusInMeters);
+//   MapPolygon _createMapCircle() {
+//     double radiusInMeters = 500;
+//     GeoCircle geoCircle =
+//         GeoCircle(GeoCoordinates(-7.9829137, 112.6259241), radiusInMeters);
 
-    GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = Color(0x3341ea06);
-    MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
+//     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
+//     Color fillColor = Color(0x3341ea06);
+//     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
-    return mapPolygon;
-  }
+//     return mapPolygon;
+//   }
 
-  MapPolygon _buatMapCircle() {
-    double radiusInMeters = 500;
-    GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.97651, 112.6362599), radiusInMeters);
+//   MapPolygon _buatMapCircle() {
+//     double radiusInMeters = 500;
+//     GeoCircle geoCircle =
+//         GeoCircle(GeoCoordinates(-7.97651, 112.6362599), radiusInMeters);
 
-    GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x33ea8f06);
-    MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
+//     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
+//     Color fillColor = const Color(0x33ea8f06);
+//     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
-    return mapPolygon;
-  }
+//     return mapPolygon;
+//   }
 
-  MapPolygon _createMapCircle2() {
-    double radiusInMeters = 500;
-    GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9870115, 112.6367586), radiusInMeters);
+//   MapPolygon _createMapCircle2() {
+//     double radiusInMeters = 500;
+//     GeoCircle geoCircle =
+//         GeoCircle(GeoCoordinates(-7.9870115, 112.6367586), radiusInMeters);
 
-    GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x33ea0606);
-    MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
+//     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
+//     Color fillColor = const Color(0x33ea0606);
+//     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
-    return mapPolygon;
-  }
+//     return mapPolygon;
+//   }
 
-  MapPolygon _buatMapCircle2() {
-    double radiusInMeters = 500;
-    GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9933047, 112.625967), radiusInMeters);
+//   MapPolygon _buatMapCircle2() {
+//     double radiusInMeters = 500;
+//     GeoCircle geoCircle =
+//         GeoCircle(GeoCoordinates(-7.9933047, 112.625967), radiusInMeters);
 
-    GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x33ea8f06);
-    MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
+//     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
+//     Color fillColor = const Color(0x33ea8f06);
+//     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
-    return mapPolygon;
-  }
+//     return mapPolygon;
+//   }
 
-  MapPolygon _lastMapCircle() {
-    double radiusInMeters = 500;
-    GeoCircle geoCircle =
-        GeoCircle(GeoCoordinates(-7.9986169, 112.6362238), radiusInMeters);
+//   MapPolygon _lastMapCircle() {
+//     double radiusInMeters = 500;
+//     GeoCircle geoCircle =
+//         GeoCircle(GeoCoordinates(-7.9986169, 112.6362238), radiusInMeters);
 
-    GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
-    Color fillColor = const Color(0x3341ea06);
-    MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
+//     GeoPolygon geoPolygon = GeoPolygon.withGeoCircle(geoCircle);
+//     Color fillColor = const Color(0x3341ea06);
+//     MapPolygon mapPolygon = MapPolygon(geoPolygon, fillColor);
 
-    return mapPolygon;
-  }
+//     return mapPolygon;
+//   }
 }
 
 void _showDialog(BuildContext context) {
@@ -352,7 +389,8 @@ void _showDialog(BuildContext context) {
       builder: (BuildContext context) {
         var size = MediaQuery.of(context).size;
         return Dialog(
-          insetPadding: EdgeInsets.only(right: size.width * 0.12, bottom: size.height * 0.05),
+          insetPadding: EdgeInsets.only(
+              right: size.width * 0.12, bottom: size.height * 0.05),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Container(
