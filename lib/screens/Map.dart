@@ -2,24 +2,23 @@
 // import 'dart:convert';
 // import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:location/location.dart';
+import 'package:show_bakso/API/markerbuilder.dart';
+import 'package:show_bakso/API/userLoc.dart';
 // import 'package:here_sdk/core.dart';
 // import 'package:here_sdk/mapview.dart';
 // import 'package:show_bakso/API/PostLocation.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/screens/home.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 // import 'package:geolocator/geolocator.dart';
-
-class Driver {
-  double latitude, longitude;
-
-  Driver({this.latitude, this.longitude});
-}
 
 class Peta extends StatefulWidget {
   @override
@@ -27,11 +26,12 @@ class Peta extends StatefulWidget {
 }
 
 class _PetaState extends State<Peta> {
+  LocationService locationService = LocationService();
+  var mapMarker;
+
   Set<Marker> _markers = {};
-  BitmapDescriptor mapMarker;
   void setCustomMarker() async {
-    mapMarker = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(), 'assets/images/pinBakso.png');
+    mapMarker = await getBytesFromAsset('assets/images/pinBakso.png', 50);
   }
 
   @override
@@ -41,19 +41,21 @@ class _PetaState extends State<Peta> {
     setCustomMarker();
   }
 
-  void _onMapCreated(GoogleMapController controller) {
+  void _onMapCreated(GoogleMapController controller) async {
+    Position position = await Geolocator.getCurrentPosition();
+
+    double latitude = position.latitude;
+    double longitude = position.longitude;
+
     setState(() {
-      _markers.add(
-        Marker(
-          markerId: MarkerId('id-1'),
-          icon: mapMarker,
-          position: LatLng(-7.977062189410172, 112.63404802916423),
-        ),
-      );
+      _markers.add(Marker(
+        markerId: MarkerId('id-1'),
+        icon: BitmapDescriptor.fromBytes(mapMarker),
+        position: LatLng(latitude, longitude),
+      ));
     });
   }
 
-  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
@@ -61,16 +63,21 @@ class _PetaState extends State<Peta> {
       body: Container(
         child: Stack(
           children: [
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              markers: _markers,
-              mapType: MapType.terrain,
-              zoomControlsEnabled: false,
-              initialCameraPosition: CameraPosition(
-                target: LatLng(-7.977062189410172, 112.63404802916423),
-                zoom: 15,
-              ),
-            ),
+            StreamBuilder<UserLocation>(
+                stream: locationService.locationStream,
+                builder: (_, snapshot) => (snapshot.hasData)
+                    ? GoogleMap(
+                        onMapCreated: _onMapCreated,
+                        markers: _markers,
+                        mapType: MapType.terrain,
+                        zoomControlsEnabled: false,
+                        initialCameraPosition: CameraPosition(
+                          target: LatLng(
+                              snapshot.data.latitude, snapshot.data.longitude),
+                          zoom: 15,
+                        ),
+                      )
+                    : SizedBox()),
             // HereMap(
             //   onMapCreated: onMapCreated,
             // ),
@@ -236,29 +243,29 @@ class _PetaState extends State<Peta> {
 //     hereMapController.mapScene.addMapPolygon(_buatMapCircle2());
 //     hereMapController.mapScene.addMapPolygon(_lastMapCircle());
 
-//     double distance = 500;
-//     Position position = await Geolocator.getCurrentPosition();
+  // double distance = 500;
+  // Position position = await Geolocator.getCurrentPosition();
 
-//     // double latitude = position.latitude;
-//     // double longitude = position.longitude;
+  // double latitude = position.latitude;
+  // double longitude = position.longitude;
 
-//     // defines a timer
-//     Driver driver1 =
-//         Driver(latitude: position.latitude, longitude: position.longitude);
+  // // defines a timer
+  // Driver driver1 =
+  //     Driver(latitude: position.latitude, longitude: position.longitude);
 
-//     hereMapController.camera.lookAtPointWithDistance(
-//         GeoCoordinates(position.latitude, position.longitude), distance);
+  // hereMapController.camera.lookAtPointWithDistance(
+  //     GeoCoordinates(position.latitude, position.longitude), distance);
 
-//     Timer.periodic(Duration(seconds: 3), (Timer t) {
-//       setState(() async {
-//         Position _nowposition = await Geolocator.getCurrentPosition();
-//         driver1.latitude = _nowposition.latitude;
-//         driver1.longitude = _nowposition.longitude;
-//         print("latitude : " + driver1.latitude.toString());
-//         print("longitude : " + driver1.longitude.toString());
-//         print(position.longitude);
-//       });
-//     });
+  // Timer.periodic(Duration(seconds: 3), (Timer t) {
+  //   setState(() async {
+  //     Position _nowposition = await Geolocator.getCurrentPosition();
+  //     driver1.latitude = _nowposition.latitude;
+  //     driver1.longitude = _nowposition.longitude;
+  //     print("latitude : " + driver1.latitude.toString());
+  //     print("longitude : " + driver1.longitude.toString());
+  //     print(position.longitude);
+  //   });
+  // });
 
 //     hereMapController.pinWidget(
 //         _createWidget(), GeoCoordinates(driver1.latitude, driver1.longitude));

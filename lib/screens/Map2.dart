@@ -1,6 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:show_bakso/API/markerbuilder.dart';
+import 'package:show_bakso/API/userLoc.dart';
 // import 'package:geolocator/geolocator.dart';
 // import 'package:here_sdk/core.dart';
 // import 'package:here_sdk/mapview.dart';
@@ -8,6 +14,7 @@ import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/menupanjang.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 // import 'package:show_bakso/template/dialog.dart';
+import 'dart:ui' as ui;
 
 class Peta2 extends StatefulWidget {
   @override
@@ -15,11 +22,12 @@ class Peta2 extends StatefulWidget {
 }
 
 class _Peta2State extends State<Peta2> {
+  LocationService locationService = LocationService();
+  var mapMarker;
+
   Set<Marker> _markers = {};
-  BitmapDescriptor mapMarker;
   void setCustomMarker() async {
-    mapMarker = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(), 'assets/images/pinBakso.png');
+    mapMarker = await getBytesFromAsset('assets/images/pinBakso.png', 50);
   }
 
   @override
@@ -29,15 +37,18 @@ class _Peta2State extends State<Peta2> {
     setCustomMarker();
   }
 
-  void _onMapCreated(GoogleMapController controller) {
+  void _onMapCreated(GoogleMapController controller) async {
+    Position position = await Geolocator.getCurrentPosition();
+
+    double latitude = position.latitude;
+    double longitude = position.longitude;
+
     setState(() {
-      _markers.add(
-        Marker(
-          markerId: MarkerId('id-1'),
-          icon: mapMarker,
-          position: LatLng(-7.977062189410172, 112.63404802916423),
-        ),
-      );
+      _markers.add(Marker(
+        markerId: MarkerId('id-1'),
+        icon: BitmapDescriptor.fromBytes(mapMarker),
+        position: LatLng(latitude, longitude),
+      ));
     });
   }
 
@@ -48,16 +59,21 @@ class _Peta2State extends State<Peta2> {
       body: Container(
         child: Stack(
           children: [
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              markers: _markers,
-              mapType: MapType.terrain,
-              zoomControlsEnabled: false,
-              initialCameraPosition: CameraPosition(
-                target: LatLng(-7.977062189410172, 112.63404802916423),
-                zoom: 15,
-              ),
-            ),
+            StreamBuilder<UserLocation>(
+                stream: locationService.locationStream,
+                builder: (_, snapshot) => (snapshot.hasData)
+                    ? GoogleMap(
+                        onMapCreated: _onMapCreated,
+                        markers: _markers,
+                        mapType: MapType.terrain,
+                        zoomControlsEnabled: false,
+                        initialCameraPosition: CameraPosition(
+                          target: LatLng(
+                              snapshot.data.latitude, snapshot.data.longitude),
+                          zoom: 15,
+                        ),
+                      )
+                    : SizedBox()),
             //  HereMap (
             //     onMapCreated: onMapCreated,
             //   ),
