@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:show_bakso/screens/Map.dart';
 import 'package:show_bakso/screens/login.dart';
 
 void main() {
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SHOW BAKSO!',
       debugShowCheckedModeBanner: false,
-      home: Peta(),
+      home: LoginPage(),
     );
   }
 }

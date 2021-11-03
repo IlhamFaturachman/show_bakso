@@ -1,24 +1,12 @@
-// import 'dart:async';
-// import 'dart:convert';
-// import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:typed_data';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:location/location.dart';
 import 'package:show_bakso/API/markerbuilder.dart';
 import 'package:show_bakso/API/userLoc.dart';
-// import 'package:here_sdk/core.dart';
-// import 'package:here_sdk/mapview.dart';
-// import 'package:show_bakso/API/PostLocation.dart';
 import 'package:show_bakso/screens/Map2.dart';
 import 'package:show_bakso/screens/home.dart';
 import 'package:slide_to_confirm/slide_to_confirm.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-// import 'package:geolocator/geolocator.dart';
 
 class Peta extends StatefulWidget {
   @override
@@ -36,6 +24,7 @@ class _PetaState extends State<Peta> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     setCustomMarker();
